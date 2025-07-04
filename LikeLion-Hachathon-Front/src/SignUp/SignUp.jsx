@@ -28,6 +28,7 @@ function SignUp() {
                 <h1 className="signUpTitle">회원가입</h1>
 
                 <div className="SignUp-Input-container">
+                    <div className="SignUp-Input-Title">
                     <input
                         type="email"
                         id="email"
@@ -38,6 +39,8 @@ function SignUp() {
                         onChange={handleChange}
                         required
                     />
+                    </div>
+                    <div className="SignUp-Input-Title">
                     <input
                         type="password"
                         id="password"
@@ -48,6 +51,8 @@ function SignUp() {
                         onChange={handleChange}
                         required
                     />
+                    </div>
+                    <div className="SignUp-Input-Title">
                     <input
                         type="password"
                         id="confirmPassword"
@@ -58,6 +63,8 @@ function SignUp() {
                         onChange={handleChange}
                         required
                     />
+                    </div>
+                    <div className="SignUp-Input-Title">
                     <input
                         type="text"
                         id="name"
@@ -68,6 +75,7 @@ function SignUp() {
                         onChange={handleChange}
                         required
                     />
+                    </div>
                 </div>
 
                 <button
