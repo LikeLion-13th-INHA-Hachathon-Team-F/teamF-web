@@ -11,13 +11,22 @@ const WriteWill = () => {
       <div className="WriteWill-Body">
         <div className="WriteWill-Write">
             <div className='WriteWill-Write-Title'>
-                <p>제목</p>
-                <input type='text' />
+                <p className='WriteWill-p'>제목</p>
+                <input type='text' className='WriteWill-Write-Contents' />
+                <p className='WriteWill-p'>내용</p>
+                <textarea className='WriteWill-Write-Textarea'>
+
+                </textarea>
+                <br/>
+                <button className='WriteButton'>
+                    작성하기
+                </button>
                
             </div>
 
         </div>
         <div className='WriteWill-WritingTips'>
+            <p>작성 도움말</p>
 
         </div>
 

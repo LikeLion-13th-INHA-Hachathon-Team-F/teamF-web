@@ -15,8 +15,49 @@
 
 .WriteWill-Body{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-top: 100px;
+}
+.WriteWill-Write-Title{
+     border: 1px solid #ddd;
+}
+.WriteWill-Write-Contents, .WriteWill-Write-Textarea{
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 250px;
+    margin: 1px 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+.WriteWill-Write-Textarea{
+    padding-bottom: 300px;
+}
+.WriteButton{
+    width: 17%;
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    height: 40px;
+    background-color: #4F7942; /* 딥 그린 */
+    border-radius: 12px;
+    border: 1px solid #C0C0C0;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.WriteWill-p{
+    padding-left: 17px;
+}
+.WriteWill-WritingTips{
+    border: 1px solid #ddd;
 }
