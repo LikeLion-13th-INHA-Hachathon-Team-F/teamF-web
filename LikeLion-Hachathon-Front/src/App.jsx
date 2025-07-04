@@ -1,9 +1,17 @@
-import LoginPage from "./LoginPage/LoginPage"
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "./LoginPage/LoginPage";
+import SignUp from "./SignUp/SignUp";
 
 function App() {
   return (
-    <LoginPage />
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

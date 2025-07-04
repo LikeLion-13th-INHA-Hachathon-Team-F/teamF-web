@@ -1,6 +1,10 @@
 import React from "react";
 import "./LoginPage.css";
+
+import { useNavigate } from "react-router-dom";
+
 function LoginPage() { 
+    const Navigate = useNavigate();
     return(
         <div className="LoginPage-Page">
             <div className="LoginPage-Headline">
@@ -25,7 +29,11 @@ function LoginPage() {
 
             </div>
             <div className="LoginPage-SignupButton">
-                <button>
+                <button
+                    type="button"
+                    class name="SignUpButton"
+                    onClick={()=> Navigate("/signup")}
+                >
                     회원가입 하러가기
                 </button>
             </div>
