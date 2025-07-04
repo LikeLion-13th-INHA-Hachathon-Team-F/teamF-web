@@ -8,23 +8,22 @@
     transform: translate(-50%,0);
     display: flex;
     flex-direction: column;
-    
-}
-.teduri{
-    border: 1px solid #DCDCDC; /* 테두리 두께와 색상 설정 */
-    border-radius: 10px; /* 모서리를 둥글게 설정 (선택 사항) */
-    padding: 40px; /* 내부 여백 */
-    display: flex;
+     display: flex;
     flex-direction: column;
+    border: 1px solid #DCDCDC;
+    border-radius: 10px;
     align-items: center;
-    justify-content: center;
-    margin-top: 5%;
 }
+
 
 .signUpTitle{
-    font-size: 29px;
+    font-size: 16px;
     font-weight: normal;
-
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #ddd;
 }
 
 .SignUp-Input-container{
@@ -34,6 +33,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
 }
 
 .inputbox{
@@ -47,15 +47,17 @@
     
 }
 .inputbox::placeholder{
-  
+
     color: #bbb;
 }
 
 .SignUp-Input-Title{
      border: 1px solid #ddd;
+      max-width: 420px;
+      width: 100%;
     border-radius: 12px;
     padding: 12px 16px;
-    margin: 12px 20px;
+    margin: 10px 60px;
     background-color: #f9f9f9;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
@@ -75,7 +77,7 @@ width: 60%;
     font-weight: 400;
     color: white;
     cursor: pointer;
-    margin-top: 20px;
+margin-top: -30px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
    
@@ -88,9 +90,13 @@ width: 60%;
 }
 .BackToLogin{
     color: #6B8C5F;
-    font-size: 1vw;
+    font-size: 10px;
     cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+
 }
+
 .BackToLogin:hover{
     color: #4F7942;
     text-decoration: underline;
