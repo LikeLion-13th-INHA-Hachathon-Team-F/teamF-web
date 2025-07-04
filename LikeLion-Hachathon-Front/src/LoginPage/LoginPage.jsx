@@ -4,7 +4,12 @@ import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() { 
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate("/mainpage"); // 로그인 성공 시 메인 페이지로 이동
+    }
+
     return(
         <div className="LoginPage-Page">
             <div className="LoginPage-Headline">
@@ -23,7 +28,11 @@ function LoginPage() {
                 />
             </div>
             <div className="LoginPage-LoginButton">
-                <button className= "LoginButton">
+                <button 
+                className= "LoginButton"
+                onClick={handleLogin} // 로그인 성공 시 메인 페이지로 이동
+                >
+
                     로그인 하기 
                 </button>
 
@@ -32,7 +41,7 @@ function LoginPage() {
                 <button
                     type="button"
                     className="SignUpButton"
-                    onClick={()=> Navigate("/signup")}
+                    onClick={()=> navigate("/signup")}
                 >
                     회원가입 하러가기
                 </button>
