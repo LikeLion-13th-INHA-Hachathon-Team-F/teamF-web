@@ -11,6 +11,7 @@
     font-size: 30px;
     font-weight: 700;
     color: #6B8C5F;
+    cursor: pointer;
 }
 
 .WriteWill-Body{
@@ -19,9 +20,12 @@
     align-items: center;
     justify-content: center;
     margin-top: 100px;
+    margin-bottom: 30px;
 }
 .WriteWill-Write-Title{
-     border: 1px solid #ddd;
+    margin: 50px;
+    width: 800px;
+    margin-top: -290px;
 }
 .WriteWill-Write-Contents, .WriteWill-Write-Textarea{
     border: 1px solid #ddd;
@@ -34,17 +38,13 @@
 .WriteWill-Write-Textarea{
     padding-bottom: 300px;
 }
-.WriteButton{
+.WriteButton{  
     width: 17%;
-    margin-left: auto;
-    margin-right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 10px;
     padding: 10px 20px;
     height: 40px;
     background-color: #4F7942; /* 딥 그린 */
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid #C0C0C0;
     outline: none;
     font-size: 15px;
@@ -60,4 +60,47 @@
 }
 .WriteWill-WritingTips{
     border: 1px solid #ddd;
+    border-radius: 12px;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+    width: 500px;
+    padding-bottom: 20px;
+}
+.WritingTip{
+    padding-left: 10px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    padding: 14px 12px;
+    width: 65%;
+    padding-left: 20px;
+    font-size: 12px;
+}
+.WritingTipHead{
+    padding-right: 350px;
+    color: gray;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+.WriteWill-Write-Textarea{
+    width: 94%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.WriteWill-Write-Contents{
+     padding-left: 10px;
+      width: 500px
+}
+.WriteButton:hover{
+    transform: scale(1.04);
+    background-color: #3B5F2C; /* 어두운 포커스 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    color: white;
+}
+.WritingTipDetail{
+    background-color: white;
+    font-size: 11px;
+    color: gray;
+    padding: 7px 8px;
 }

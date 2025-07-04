@@ -1,0 +1,30 @@
+.DeleteButton{
+    width: 17%;
+    margin-right: 10px;
+    padding: 10px 20px;
+    height: 40px;
+    background-color: white; 
+    border-radius: 10px;
+    border: 1px solid #C0C0C0;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #6B8C5F; /* 딥 그린 */
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.DeleteButton:hover{
+    transform: scale(1.04);
+    background-color: #3B5F2C; /* 어두운 포커스 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    color: white;
+}
+.Buttons-Wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* WriteWill과 디자인이 거의 비슷해서 그것과 classname 똑같이 했음 
+   추가적 사항만 여기에 작성함 */

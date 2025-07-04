@@ -18,6 +18,8 @@ function MainPage() {
     const toggleEmailMenu = () => {
         setEmailMenuVisible(!isEmailMenuVisible); // 토글 상태 변경
     };
+
+
     return(
         <div>
             <div className="Top-bar">

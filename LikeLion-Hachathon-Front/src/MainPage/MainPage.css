@@ -28,7 +28,12 @@
     margin-top: 100px;
     margin-left: 200px;
 }
-
+.Write-will-button:hover{
+     transform: scale(1.04);
+    background-color: #3B5F2C; /* 어두운 포커스 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    color: white;
+}
 .Will-List-Title{
     background-color: #F6F6F6;
     padding: 20px 60px;
@@ -75,6 +80,12 @@
     cursor: pointer;
 }
 
+.modify-btn:hover{
+    transform: scale(1.04);
+    background-color: #3B5F2C; /* 어두운 포커스 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    color: white;
+}
 
 .email-menu {
     position: absolute; /* 위치를 고정 */
