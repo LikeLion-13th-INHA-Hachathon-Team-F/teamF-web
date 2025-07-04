@@ -13,18 +13,29 @@ function MainPage() {
     return(
         <div>
             <div className="Top-bar">
-            <div className="LoginPage-Headline">
-                lastLink
-            </div>
-            <div className="email">hong266770@gmail.com</div>
+                <div className="Logo">lastLink</div>
+                <div className="email">hong266770@gmail.com</div>
             </div>
 
             <div className="Body">
                 <button 
-                className="Write-will"
-                onClick={handleWriteWill} 
-                >유서작성하기
+                    className="Write-will-button"
+                    onClick={handleWriteWill} 
+                    >유서작성하기
                 </button>
+
+                <div className="Will-List">
+                  <div className="Will-List-Title">작성된 유서 목록</div>
+        
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목01</div>
+                        <button className="modify-btn">수정</button>
+                    </div>
+
+                    <div className="Will-List-Item">유서 제목02</div>
+                    <div className="Will-List-Item">유서 제목03</div>
+
+                </div>
 
             </div>
 

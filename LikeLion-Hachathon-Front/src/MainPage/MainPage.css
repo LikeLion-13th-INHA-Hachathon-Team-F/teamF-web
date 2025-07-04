@@ -1,0 +1,53 @@
+.Top-bar{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 80px;
+    height: 40px;
+    border-bottom: 0.5px solid rgb(166, 166, 166);
+
+}
+.Logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: #6B8C5F;
+}
+
+.Write-will-button{
+    background-color: #6B8C5F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+    margin-top: 100px;
+    margin-left: 180px;
+}
+
+/* Will-List 박스 스타일 */
+.Will-List {
+    margin-top: 20px;
+    padding: 20px 40px;
+    border: 1px solid #ccc; /* 박스 테두리 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    background-color: #f9f9f9; /* 박스 배경색 */
+    margin: 20px 200px
+}
+.Will-List-Title{
+    background-color: #9d9d9d;
+    border-radius: 10px 10px 0 0; /* 왼쪽 위와 오른쪽 위만 둥글게 설정 */
+    height: 100%;
+    width: 100%;
+
+
+}
+
+
+
+.hanjool{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+
+}
