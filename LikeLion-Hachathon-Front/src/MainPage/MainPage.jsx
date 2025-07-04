@@ -24,16 +24,27 @@ function MainPage() {
                     >유서작성하기
                 </button>
 
+                <div className="Will-List-Title">작성된 유서 목록</div>
                 <div className="Will-List">
-                  <div className="Will-List-Title">작성된 유서 목록</div>
+                 
         
                     <div className="hanjool">
                         <div className="Will-List-Item">유서 제목01</div>
                         <button className="modify-btn">수정</button>
                     </div>
 
-                    <div className="Will-List-Item">유서 제목02</div>
-                    <div className="Will-List-Item">유서 제목03</div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목02</div>
+                        <button className="modify-btn">수정</button>
+                    </div>
+
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn">수정</button>
+                    </div>
+
+
+                   
 
                 </div>
 

@@ -11,9 +11,12 @@ function QR() {
                 <img src="LikeLion-Hachathon-Front/src/assets/QRTEST.png" alt="QR Code" />
             </div>
             
-            <div className="QR-Description">
-                QR 코드를 스캔하여 회원가입을 완료하세요.
+            <div className="URL">
+                Url 주소나오게
             </div>
+            <button className="URL-CopyButton">
+                URL 복사하기
+            </button>
 
         </div>
     )
