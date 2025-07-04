@@ -11,19 +11,19 @@ function LoginPage() {
                 lastLink
             </div>
             <div className="LoginPage-IdInsert">
-                <input
+                <input className="IdInsert"
                 type="text"
                 placeholder="아이디를 입력하세요."
                 />
             </div>
             <div className="LoginPage-PasswordInsert">
-                <input
+                <input className="PasswordInsert"
                 type="text"
                 placeholder="비밀번호를 입력하세요."
                 />
             </div>
             <div className="LoginPage-LoginButton">
-                <button>
+                <button className= "LoginButton">
                     로그인 하기 
                 </button>
 
@@ -31,7 +31,7 @@ function LoginPage() {
             <div className="LoginPage-SignupButton">
                 <button
                     type="button"
-                    class name="SignUpButton"
+                    className="SignUpButton"
                     onClick={()=> Navigate("/signup")}
                 >
                     회원가입 하러가기
