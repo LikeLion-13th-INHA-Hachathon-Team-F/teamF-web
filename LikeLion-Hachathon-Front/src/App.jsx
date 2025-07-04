@@ -4,6 +4,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import SignUp from "./SignUp/SignUp";
 import MainPage from "./MainPage/MainPage";
 import WriteWill from "./WriteWill/WriteWill";
+import Modify from "./modify/modify";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/writewill" element={<WriteWill />} />
+        <Route path="/modify" element={<Modify />} />
       </Routes>
     </Router>
   );
