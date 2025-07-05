@@ -1,8 +1,7 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./MainPage.css";
-
+import QR from "../QR/QR";
 
 function MainPage() {
     const navigate = useNavigate();
@@ -18,7 +17,7 @@ function MainPage() {
     const toggleEmailMenu = () => {
         setEmailMenuVisible(!isEmailMenuVisible); // 토글 상태 변경
     };
-
+    const [showQR, setShowQR] = useState(false);
 
     return(
         <div>
@@ -28,7 +27,9 @@ function MainPage() {
                 {isEmailMenuVisible && (
                     <div className="email-menu">
                         <ul>
-                            <li>link connection</li>
+                            <li onClick={()=>setShowQR(true)}>link connection</li>
+                            
+                            {showQR && <QR onclose={()=>setShowQR(false)} />}
                             <li>logOut</li>
                         </ul>
                     </div>

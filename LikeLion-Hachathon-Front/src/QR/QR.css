@@ -1,0 +1,65 @@
+.QR-Container{
+    position: fixed;
+    top:150px;
+    bottom: 150px;
+    width: 100%;
+    max-width: 500px;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 10px;
+}
+.QR-Title{
+    color: #6B8C5F;
+    align-self: flex-end;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    cursor: pointer;
+
+}
+.QR-Image{
+    flex: 1;
+    border: 1px solid #ddd;
+    width: 80%;
+    padding: 5px 5px;
+    
+}
+.URL{
+    font-size: 14px;
+    color: #6B8C5F;
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 0px 80px;
+    border-radius: 10px;
+   
+}
+.URLcontent{
+border-bottom: #6B8C5F 1px solid;
+}
+.URL-CopyButton{
+   margin-top: 30px;
+   margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color: #6B8C5F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.URL-CopyButton:hover{
+    transform: scale(1.04);
+    background-color: #3B5F2C; /* 어두운 포커스 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    color: white;
+}
+.QR-Title:hover{
+    transform: scale(1.04);
+    color: #3B5F2C; /* 어두운 포커스 */
+   
+}

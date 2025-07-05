@@ -1,10 +1,10 @@
 import React from "react";
 import "./QR.css";
 
-function QR() {
+function QR({onclose}) {
     return(
         <div className="QR-Container">
-            <div className="QR-Title">
+            <div className="QR-Title" onClick={onclose}>
                 LinkUnconnection
             </div>
             <div className="QR-Image">
@@ -12,7 +12,7 @@ function QR() {
             </div>
             
             <div className="URL">
-                Url 주소나오게
+                <p className="URLcontent">Url 주소나오게</p>
             </div>
             <button className="URL-CopyButton">
                 URL 복사하기
