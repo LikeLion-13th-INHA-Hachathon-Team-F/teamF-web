@@ -1,0 +1,33 @@
+.VisitorIndex {
+  display: flex; /* 가로로 정렬 */
+  justify-content: flex-end;
+  gap: 20px; /* 메뉴 간 간격 */
+  align-items: center;
+
+  padding-bottom: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+}
+.VisitorIndex p {
+  margin: 0;
+  padding: 6px 0;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.VisitorIndex p:hover {
+  color: #4a734f;
+}
+
+.VisitorIndex .active {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+.MakeLink{
+    color:#4a734f
+}
+.MakeLink:hover{
+    color:#4a734f;
+    text-decoration: underline;
+    cursor: pointer;
+}
