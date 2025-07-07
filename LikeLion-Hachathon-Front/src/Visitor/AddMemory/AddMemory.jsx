@@ -17,6 +17,14 @@ const AddMemory = () => {
       reader.readAsDataURL(file);
     }
   };
+
+const photoData = [
+  { description: "사진 설명", name: "사람이름", imageUrl: "url1.jpg" },
+  { description: "사진 설명", name: "사람이름", imageUrl: "url2.jpg" },
+  { description: "사진 설명", name: "사람이름", imageUrl: "url3.jpg" },
+  // ... 더 많은 항목들
+];
+
   return (
     <div>
       <div className="AddMemory-Top-bar">
@@ -54,6 +62,15 @@ const AddMemory = () => {
       <button className='AddMemoryButton'>
         기억 추가하기
       </button>
+      <div className="gallery">
+      {photoData.map((item, index) => (
+        <div key={index} className="photo-card">
+          <img src={item.imageUrl} alt={item.description} className="photo-image" />
+          <div className="photo-description"><b>{item.description}</b></div>
+          <div className="photo-name">{item.name}</div>
+        </div>
+      ))}
+    </div>
     </div>
   )
 }
