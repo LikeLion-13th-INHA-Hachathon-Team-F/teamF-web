@@ -24,6 +24,8 @@
 .Buttons-Wrapper{
     display: flex;
     justify-content: flex-end;
+
+    
 }
 
 /* WriteWill과 디자인이 거의 비슷해서 그것과 classname 똑같이 했음 

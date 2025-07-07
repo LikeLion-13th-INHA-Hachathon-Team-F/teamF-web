@@ -40,7 +40,7 @@ const modify = () => {
             <p className='WritingTip'>전산으로 확인하기 어려운 자산</p>
           <div className='WritingTip'>
              <p>부동산, 현금, 귀중품, 암호화폐 등 전자적으로 기록되지 않은 자산에 대해 언급해보세요. <br/>주의: 비밀번호를 직접 적지 않도록 주의해주세요.</p>
-             <p className='WritingTipDetail'>ex) ”할아버지께서 물려주신 금시계가 서재 책상 뒤 작은 금고에 있어. 비밀번호는 우리 결혼기념일이야.”</p>
+             <p className='WritingTipDetail'>ex) ”할아버지께서      물려주신 금시계가 서재 책상 뒤 작은 금고에 있어. 비밀번호는 우리 결혼기념일이야.”</p>
             </div>
             <p className='WritingTip'>추억에 대한 이야기</p>
             <p className='WritingTip'>못했던 말들</p>
