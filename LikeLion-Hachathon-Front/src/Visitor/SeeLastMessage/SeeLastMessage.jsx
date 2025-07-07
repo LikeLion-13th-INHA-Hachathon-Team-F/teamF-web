@@ -10,6 +10,20 @@ const SeeLastMessage = () => {
             <div className='backButton' onClick={() => navigate(-1)}>←</div>
             <div className="Logo">lastLink</div>
       </div>
+
+      <div className="RIPView-Body">
+            <div className="RIPP-Title">
+                <div className="title">유서 제목 01</div>
+             
+                
+                </div>
+                <div className="RIP">
+            
+                    <p>내용</p>
+    
+                </div>
+
+            </div>
     </div>
   )
 }

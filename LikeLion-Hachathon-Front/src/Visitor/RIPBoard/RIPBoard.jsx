@@ -17,6 +17,10 @@ const RIPBoard = () => {
     const handleAdd = () => {
         navigate("/visitor/addrip");
     }
+
+    const handleView = () => {
+        navigate("/visitor/ripview");
+    }
    
 
   return (
@@ -40,38 +44,38 @@ const RIPBoard = () => {
                  
         
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 01</div>
+                        <div className="RIP-List-Item" onClick={handleView}>글 01</div>
                         <div className="name"
                         >작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 02</div>
+                        <div className="RIP-List-Item" onClick={handleView} >글 02</div>
                         <div className="name">작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 03</div>
+                        <div className="RIP-List-Item" onClick={handleView}>글 03</div>
                         <div className="name">작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 04</div>
+                        <div className="RIP-List-Item"  onClick={handleView}>글 04</div>
                         <div className="name">작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 05</div>
+                        <div className="RIP-List-Item"  onClick={handleView}>글 05</div>
                         <div className="name">작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 06</div>
+                        <div className="RIP-List-Item" onClick={handleView}>글 06</div>
                         <div className="name">작성자 이름</div>
                     </div>
 
                     <div className="hanjool">
-                        <div className="RIP-List-Item">글 07</div>
+                        <div className="RIP-List-Item"  onClick={handleView}>글 07</div>
                         <div className="name">작성자 이름</div>
                     </div>
                 </div>

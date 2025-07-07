@@ -7,6 +7,7 @@ import LastMessage from './LastMessage/LastMessage.jsx'
 import AddMemory from './AddMemory/AddMemory.jsx'
 import AddRIP from './AddRIP/AddRIP.jsx'
 import SeeLastMessage from './SeeLastMessage/SeeLastMessage.jsx'
+import RIPView from './RIPView/RIPView.jsx'
 
 
 const VisitorRoutes = () => {
@@ -20,6 +21,7 @@ const VisitorRoutes = () => {
         <Route path="/addmemory" element={< AddMemory/>}/>
         <Route path='/addrip' element={<AddRIP/>}/>
         <Route path="/seelastmessage" element={<SeeLastMessage />} />
+        <Route path="/ripview" element={<RIPView />} />
       </Routes> 
    
     
