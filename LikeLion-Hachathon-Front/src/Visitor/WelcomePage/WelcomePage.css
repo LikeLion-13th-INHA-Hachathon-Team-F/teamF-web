@@ -5,8 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #e0e0e0;
-  /*font-family: 'Noto Serif KR', serif;*/
+  color: #1a1a1a;
   animation: fadeIn 1.5s ease-in-out;
 }
 
