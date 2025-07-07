@@ -1,4 +1,6 @@
 .VisitorButton{
+    display: flex;
+    justify-self: center;
      background-color: #6B8C5F;
     color: white;
     border: none;
@@ -17,4 +19,24 @@
     background-color: #3B5F2C; /* 어두운 포커스 */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
     color: white;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.photo-card {
+  text-align: center;
+    
+}
+
+.photo-image {
+  object-fit: cover;
+  border: 1px solid #ddd;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+  overflow: hidden; /* 이미지 넘침 방지 */
+  background-color: #f9f9f9;
 }
