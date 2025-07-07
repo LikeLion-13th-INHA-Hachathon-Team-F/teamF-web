@@ -19,8 +19,9 @@
     flex-direction: row;
     justify-content: space-around; /* 요소 간 균등한 간격 */
     align-items: flex-start; /* 세로 정렬 */
-    padding: 80px;
-    gap: 5px; /* 요소 간 간격 */
+    padding: 100px;
+    gap: 5px;
+ 
 
 }
 
