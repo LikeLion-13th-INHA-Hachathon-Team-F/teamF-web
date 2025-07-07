@@ -3,19 +3,37 @@ import './WriteWill.css'
 import { useNavigate } from 'react-router-dom'
 import MainPage from '../MainPage/MainPage'
 import { useState } from 'react';
+import axios from 'axios'; 
 
 const WriteWill = () => {
   const navigate = useNavigate();
   const [activeTip, setActiveTip] = useState(null); 
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  
 
-
+  
+  
    const handleMainPage = () => {
         navigate("/mainpage"); 
     }
 
-    const toggleTip = (tipId) => {
+   const toggleTip = (tipId) => {
       setActiveTip(activeTip === tipId ? null : tipId);
     };
+  
+   const handleWrite = async() => {
+    try{
+      const response = axios.post('https://lastlink.p-e.kr/letters/', {title, content});
+      setTitle('');
+      setContent('');
+      alert('유서가 성공적으로 작성되었습니다.');
+    } catch(error) {
+      alert('유서 작성에 실패했습니다. 다시 시도해주세요.');
+
+   }
+  }
+
   return (
     <div>
       <div className="WriteWill-Top-bar">
@@ -24,14 +42,21 @@ const WriteWill = () => {
       <div className="WriteWill-Body">
         <div className="WriteWill-Write">
                 <p className='WriteWill-p'>제목</p>
-                <input type='text' className='WriteWill-Write-Contents' />
+                <input 
+                 type='text' 
+                 className='WriteWill-Write-Contents'
+                 value={title}
+                 onChange={(e) => setTitle(e.target.value)} 
+                 />
                 <p className='WriteWill-p'>내용</p>
-                <textarea className='WriteWill-Write-Textarea'>
-
-                </textarea>
+                <textarea 
+                 className='WriteWill-Write-Textarea'
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
                 <br/>
                 <div className="Buttons-Wrapper">
-                <button className='WriteButton'>
+                <button className='WriteButton' onClick={handleWrite}>
                     작성하기
                 </button>
                 </div>
@@ -148,7 +173,7 @@ const WriteWill = () => {
       </div>
 
     </div>
-  )
+  );
 }
 
-export default WriteWill
+export default WriteWill;
