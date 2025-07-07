@@ -13,6 +13,9 @@ const MemoryRoom = () => {
   const handleLogin = () => {
         navigate("/"); // 로그인 페이지로 이동
     }
+  const handleAddMemory = () => {
+        navigate("/visitor/addmemory"); // 기억 추가 페이지로 이동
+    }
   return (
     <div>
       <div className="Top-bar">
@@ -24,8 +27,12 @@ const MemoryRoom = () => {
               <p style={{fontWeight: "bold"}}> 기억의 방</p>|
               <p onClick={handleRIP}>추모 게시판</p>|
               <p onClick={handleLastMessage}>마지막 메시지</p>
-      </div>
-      </div>
+            </div>
+        </div>
+        <button className='VisitorButton' onClick={ handleAddMemory}>
+          기억 추가하기
+        </button>
+
     </div>
   )
 }

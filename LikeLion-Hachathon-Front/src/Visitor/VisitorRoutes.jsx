@@ -4,6 +4,7 @@ import WelcomePage from './WelcomePage/WelcomePage.jsx'
 import MemoryRoom from './MemoryRoom/MemoryRoom.jsx'
 import RIPBoard from './RIPBoard/RIPBoard.jsx'
 import LastMessage from './LastMessage/LastMessage.jsx'
+import AddMemory from './AddMemory/AddMemory.jsx'
 
 const VisitorRoutes = () => {
   return ( 
@@ -13,6 +14,8 @@ const VisitorRoutes = () => {
         <Route path="/memoryroom" element= {<MemoryRoom />}/>
         <Route path="/ripboard" element={<RIPBoard />}/>
         <Route path="/lastmessage" element={<LastMessage />}/>
+        <Route path="/addmemory" element={< AddMemory/>}/>
+        
       </Routes>
    
     
