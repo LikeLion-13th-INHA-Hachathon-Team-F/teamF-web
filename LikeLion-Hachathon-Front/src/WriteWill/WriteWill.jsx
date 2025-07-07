@@ -24,15 +24,21 @@ const WriteWill = () => {
   
    const handleWrite = async() => {
     try{
-      const response = axios.post('https://lastlink.p-e.kr/letters/', {title, content});
-      setTitle('');
-      setContent('');
-      alert('유서가 성공적으로 작성되었습니다.');
+      const response = await axios.post('https://lastlink.p-e.kr/letters/', {title, content});
+      if(response.status === 201) {
+        alert('유서가 성공적으로 작성되었습니다.');
+        console.log('유서 작성 성공',response.data);
+        setTitle('');
+        setContent('');
+        navigate('/mainpage');
+      }
     } catch(error) {
+      console.error('유서 작성 실패', error);
       alert('유서 작성에 실패했습니다. 다시 시도해주세요.');
 
    }
-  }
+
+  };
 
   return (
     <div>
