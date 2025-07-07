@@ -17,23 +17,27 @@
 .WriteWill-Body{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 30px;
 }
-.WriteWill-Write-Title{
-    margin: 50px;
-    width: 800px;
-    margin-top: -290px;
+
+.WriteWill-Write{
+    margin-top: 120px;
+    margin-left: 160px;
+   
 }
-.WriteWill-Write-Contents, .WriteWill-Write-Textarea{
+.WriteWill-Write-Contents{
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 15px 250px;
     margin: 1px 10px;
     transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.WriteWill-Write-Textarea{
     border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 250px;
+    margin: 1px 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+   
 }
 .WriteWill-Write-Textarea{
     padding-bottom: 300px;
@@ -43,7 +47,7 @@
     margin-right: 10px;
     padding: 10px 20px;
     height: 40px;
-    background-color: #4F7942; /* 딥 그린 */
+    background-color: #4F7942; 
     border-radius: 10px;
     border: 1px solid #C0C0C0;
     outline: none;
@@ -61,21 +65,26 @@
 .WriteWill-WritingTips{
     border: 1px solid #ddd;
     border-radius: 12px;
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px 0;
     width: 500px;
     padding-bottom: 20px;
+    margin-top: 120px;
+    margin-left: 80px;
+    
 }
 .WritingTip{
-    padding-left: 10px;
     background-color: #F7F7F7;
     border-radius: 10px;
-    padding: 14px 12px;
     width: 65%;
-    padding-left: 20px;
-    font-size: 12px;
+    padding: 5px 20px;
+    margin-top: 20px;
+}
+
+.ex{
+    color: #6B8C5F;
 }
 .WritingTipHead{
     padding-right: 350px;
@@ -90,7 +99,7 @@
 }
 .WriteWill-Write-Contents{
      padding-left: 10px;
-      width: 500px
+    width: 500px
 }
 .WriteButton:hover{
     transform: scale(1.04);
@@ -99,8 +108,21 @@
     color: white;
 }
 .WritingTipDetail{
-    background-color: white;
-    font-size: 11px;
-    color: gray;
+    font-size: 13px;
     padding: 7px 8px;
+}
+
+.whiteBox{
+    background-color: white;
+    font-size: 13px;
+    padding: 7px 8px;
+
+    
+}
+
+
+.TextTitle{
+    font-size: 14px;
+
+    
 }
