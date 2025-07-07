@@ -19,6 +19,10 @@ function MainPage() {
     };
     const [showQR, setShowQR] = useState(false);
 
+    const handleLogout = () => {
+        navigate("/"); // 로그아웃 시 로그인 페이지로 이동
+    }
+
     return(
         <div>
             <div className="Top-bar">
@@ -30,7 +34,7 @@ function MainPage() {
                             <li onClick={()=>setShowQR(true)}>link connection</li>
                             
                             {showQR && <QR onclose={()=>setShowQR(false)} />}
-                            <li>logOut</li>
+                            <li onClick={handleLogout}>logOut</li>
                         </ul>
                     </div>
                 )}
@@ -45,8 +49,6 @@ function MainPage() {
 
                 <div className="Will-List-Title">작성된 유서 목록</div>
                 <div className="Will-List">
-                 
-        
                     <div className="hanjool">
                         <div className="Will-List-Item">유서 제목01</div>
                         <button className="modify-btn"
@@ -62,15 +64,56 @@ function MainPage() {
                         <div className="Will-List-Item">유서 제목03</div>
                         <button className="modify-btn"onClick={handlemodify}>수정</button>
                     </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
 
-
-                   
-
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
+                    <div className="hanjool">
+                        <div className="Will-List-Item">유서 제목03</div>
+                        <button className="modify-btn"onClick={handlemodify}>수정</button>
+                    </div>
                 </div>
 
             </div>
 
-            <div className="footer"></div>
+            <div className="footer">
+                <div className="footer-content">
+                    © 2025 LastLink. All rights reserved.
+                </div>
+            </div>
         </div>
     )
 }

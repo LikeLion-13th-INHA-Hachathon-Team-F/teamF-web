@@ -113,3 +113,22 @@
 .email-menu li:hover {
     background-color: #f4f4f4; /* 마우스 오버 시 배경색 변경 */
 }
+
+.Body {
+    margin-bottom: 80px; /* 푸터 높이만큼 여백 추가 */
+}
+
+.footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-content {
+    font-size: 18px;
+    color: #6c757d;
+}
