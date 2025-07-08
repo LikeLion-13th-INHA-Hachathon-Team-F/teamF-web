@@ -41,6 +41,7 @@ const modify = () => {
         }
 
       }
+      fetchLetterData();
     }, []);
     return (
     <div>
@@ -55,13 +56,13 @@ const modify = () => {
                  type='text' 
                  className='WriteWill-Write-Contents' 
                  value={letterData ? letterData.title : ''}
-                 readOnly // 수정 불가능하게 설정
+                 disabled // 수정 불가능하게 설정
                  />
                 <p className='WriteWill-p'>내용</p>
                 <textarea 
                  className='WriteWill-Write-Textarea'
                  value={letterData ? letterData.content : ''}
-                 readOnly // 수정 불가능하게 설정
+                 disabled // 수정 불가능하게 설정
                  />
 
                 
