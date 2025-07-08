@@ -1,4 +1,4 @@
-import './modify.css'
+import './Modify.css'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const modify = () => {
+const Modify = () => {
       const {id} = useParams(); // URL에서 유서 ID를 가져옴
       const navigate = useNavigate();
       const [activeTip, setActiveTip] = useState(null); 
@@ -20,7 +20,40 @@ const modify = () => {
       };
       const [letterData, setLetterData] = useState(null);
 
-  
+      const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLetterData((prev) => ({ ...prev, [name]: value }));
+  };
+
+   const handlesave = async () => {
+    const accessToken = localStorage.getItem("access_token");
+    if (!accessToken) {
+        alert("로그인이 필요합니다. 로그인 후 다시 시도해주세요.");
+        return;
+    }
+    try {
+        const response = await axios.patch(`https://lastlink.p-e.kr/letters/${id}/`, {
+            title: letterData.title,
+            content: letterData.content
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        
+        if (response.status === 200) {
+            alert('유서가 성공적으로 수정되었습니다.');
+            console.log('유서 수정 성공', response.data);
+            navigate('/mainpage');
+        }
+    } catch (error) {
+        console.error('유서 수정 실패', error);
+        alert('유서 수정에 실패했습니다. 다시 시도해주세요.');
+    }
+  };
+
+
     useEffect(() => {
       const fetchLetterData = async () => {
         const accessToken = localStorage.getItem("access_token");
@@ -43,6 +76,8 @@ const modify = () => {
       }
       fetchLetterData();
     }, []);
+
+
     return (
     <div>
         <div className="WriteWill-Top-bar">
@@ -56,13 +91,15 @@ const modify = () => {
                  type='text' 
                  className='WriteWill-Write-Contents' 
                  value={letterData ? letterData.title : ''}
-                 disabled // 수정 불가능하게 설정
+                 onChange={handleChange}
+                 name="title"
                  />
                 <p className='WriteWill-p'>내용</p>
                 <textarea 
                  className='WriteWill-Write-Textarea'
                  value={letterData ? letterData.content : ''}
-                 disabled // 수정 불가능하게 설정
+                 onChange={handleChange}
+                 name="content"
                  />
 
                 
@@ -71,7 +108,7 @@ const modify = () => {
                 <button className='DeleteButton'>
                     유서 삭제하기
                 </button>
-                <button className='WriteButton'>
+                <button className='WriteButton' onClick={handlesave}>
                     수정하기
                 </button>
                 </div>
@@ -194,4 +231,4 @@ const modify = () => {
   )
 }
 
-export default modify
+export default Modify
