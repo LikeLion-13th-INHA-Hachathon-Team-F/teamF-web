@@ -11,9 +11,6 @@ const WriteWill = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   
-
-  
-  
    const handleMainPage = () => {
         navigate("/mainpage"); 
     }
@@ -35,9 +32,7 @@ const WriteWill = () => {
     } catch(error) {
       console.error('유서 작성 실패', error);
       alert('유서 작성에 실패했습니다. 다시 시도해주세요.');
-
    }
-
   };
 
   return (
