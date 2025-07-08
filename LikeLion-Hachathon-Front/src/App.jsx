@@ -15,7 +15,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/writewill" element={<WriteWill />} />
-        <Route path="/modify" element={<Modify />} />
+        <Route path="/modify/:id" element={<Modify />} />
         {/* Visitor Routes */}
          <Route path="/visitor/*" element={<VisitorRoutes />} />
       </Routes>
