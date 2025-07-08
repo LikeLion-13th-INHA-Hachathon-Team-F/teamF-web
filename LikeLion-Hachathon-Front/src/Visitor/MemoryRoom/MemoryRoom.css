@@ -1,5 +1,7 @@
 .VisitorButton{
     display: flex;
+    justify-content: center;
+    align-items: center;
     justify-self: baseline;
     background-color: #6B8C5F;
     color: white;
