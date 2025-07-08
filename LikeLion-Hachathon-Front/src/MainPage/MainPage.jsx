@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
 import QR from "../QR/QR";
+import axios from "axios";
+import { useEffect } from "react";
 
 function MainPage() {
     const navigate = useNavigate();
@@ -22,12 +24,43 @@ function MainPage() {
     const handleLogout = () => {
         navigate("/"); // 로그아웃 시 로그인 페이지로 이동
     }
+    const [userData, setUserData] = useState(null);
+    
+
+
+    useEffect(() => {
+    const fetchData = async () => {
+        const accessToken = localStorage.getItem("access_token");
+        if (!accessToken) {
+            console.error("토큰이 없습니다. 로그인하세요.");
+            return;
+        }
+        try {
+            const response = await axios.get("https://lastlink.p-e.kr/members/info", {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            console.log("데이터 가져오기 성공:", response.data);
+            setUserData(response.data); // 사용자 데이터를 상태에 저장
+                      
+        } catch (error) {
+            console.error("데이터 가져오기 실패:", error);
+
+        }
+    }
+    fetchData();
+    },[]);
+
+    if (!userData) {
+        return <div>Loading...</div>; // 데이터가 로드될 때까지 로딩
+    }
 
     return(
         <div>
             <div className="Top-bar">
                 <div className="Logo">lastLink</div>
-                <div className="email" onClick={toggleEmailMenu}>hong266770@gmail.com</div>
+                <div className="email" onClick={toggleEmailMenu}>{userData.login_id}</div>
                 {isEmailMenuVisible && (
                     <div className="email-menu">
                         <ul>
