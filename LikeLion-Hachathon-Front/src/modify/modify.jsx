@@ -2,8 +2,12 @@ import './modify.css'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const modify = () => {
+      const {id} = useParams(); // URL에서 유서 ID를 가져옴
       const navigate = useNavigate();
       const [activeTip, setActiveTip] = useState(null); 
     
@@ -14,7 +18,31 @@ const modify = () => {
       const toggleTip = (tipId) => {
           setActiveTip(activeTip === tipId ? null : tipId);
       };
-  return (
+      const [letterData, setLetterData] = useState(null);
+
+  
+    useEffect(() => {
+      const fetchLetterData = async () => {
+        const accessToken = localStorage.getItem("access_token");
+        if (!accessToken) {
+            console.error("토큰이 없습니다. 로그인하세요.");
+            return;
+        }
+        try {
+            const response = await axios.get(`https://lastlink.p-e.kr/letters/${id}/`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            console.log("유서 데이터 가져오기 성공:", response.data);
+            setLetterData(response.data);
+        } catch (error) {
+            console.error("유서 데이터 가져오기 실패:", error);
+        }
+
+      }
+    }, []);
+    return (
     <div>
         <div className="WriteWill-Top-bar">
         <div className="WriteWill-Logo"  onClick={handleMainPage}>lastLink</div>
@@ -23,11 +51,20 @@ const modify = () => {
         <div className="WriteWill-Write">
             <div className='WriteWill-Write-Title'>
                 <p className='WriteWill-p'>제목</p>
-                <input type='text' className='WriteWill-Write-Contents' />
+                <input 
+                 type='text' 
+                 className='WriteWill-Write-Contents' 
+                 value={letterData ? letterData.title : ''}
+                 readOnly // 수정 불가능하게 설정
+                 />
                 <p className='WriteWill-p'>내용</p>
-                <textarea className='WriteWill-Write-Textarea'>
+                <textarea 
+                 className='WriteWill-Write-Textarea'
+                 value={letterData ? letterData.content : ''}
+                 readOnly // 수정 불가능하게 설정
+                 />
 
-                </textarea>
+                
                 <br/>
                 <div className="Buttons-Wrapper">
                 <button className='DeleteButton'>

@@ -21,7 +21,23 @@ const WriteWill = () => {
   
    const handleWrite = async() => {
     try{
-      const response = await axios.post('https://lastlink.p-e.kr/letters/', {title, content});
+      if(!title || !content) {
+        alert('제목과 내용을 모두 입력해주세요.');  
+        return;
+      } 
+      const accessToken = localStorage.getItem('access_token');
+      if (!accessToken) {
+        alert('로그인이 필요합니다. 로그인 후 다시 시도해주세요.'); 
+        return;
+      }
+
+      const response = await axios.post('https://lastlink.p-e.kr/letters/', {title, content},{
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      
       if(response.status === 201) {
         alert('유서가 성공적으로 작성되었습니다.');
         console.log('유서 작성 성공',response.data);
