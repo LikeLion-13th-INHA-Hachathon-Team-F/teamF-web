@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './MemoryRoom.css'
+import {motion} from 'framer-motion'
 
 const MemoryRoom = () => {
   const navigate = useNavigate();
@@ -43,15 +44,28 @@ const MemoryRoom = () => {
         <button className='VisitorButton' onClick={ handleAddMemory}>
           기억 추가하기
         </button>
-        <div className="gallery">
+        <motion. div 
+         className="gallery">
         {photoData.map((item, index) => (
-          <div key={index} className="photo-card">
+          
+            <motion.div
+            key={index}
+            className="photo-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              ease: 'easeInOut',
+              duration: 2,
+              x: { duration: 1 },
+            }}
+          >
             <img src={item.imageUrl} alt={item.description} className="photo-image" />
             <div className="photo-description"><b>{item.description}</b></div>
             <div className="photo-name">{item.name}</div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion. div>
       
 
     </div>
