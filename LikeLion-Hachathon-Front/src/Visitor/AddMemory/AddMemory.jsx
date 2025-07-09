@@ -9,19 +9,14 @@ const AddMemory = () => {
      const [image, setImage] = useState(null);
      const [description, setDescription] = useState(''); 
      const [author, setAuthor] = useState(''); 
+     const [password, setPassword] = useState(''); 
 
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result); // base64 형태로 미리보기
-      };
-      reader.readAsDataURL(file);
-    }
+     const handleImageChange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+          setImage(file); 
+      }
   };
-
   const handleAddMemory = async () => {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
@@ -29,30 +24,52 @@ const AddMemory = () => {
         return;
     }
 
+    if (!image || !description || !author || !password) {
+        alert('모든 필드를 입력해주세요.');
+        return;
+    }
+
+    const passwordRegex = /^\d{4}$/; 
+    if (!passwordRegex.test(password)) {
+        alert('비밀번호는 숫자 4자리여야 합니다.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', image); 
+    formData.append('description', description); 
+    formData.append('writer', author); 
+    formData.append('password', password); 
+
     try {
         const response = await axios.post(
             'https://lastlink.p-e.kr/room/', 
-            {
-                imageUrl: image, 
-                description: description, 
-                name: author, 
-            },
+            formData,
             {
                 headers: {
-                    Authorization: `Bearer ${accessToken}`, // 인증 토큰
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'multipart/form-data', 
                 },
             }
         );
         if (response.status === 201) {
             alert('기억이 성공적으로 추가되었습니다.');
             navigate(-1); // 이전 페이지로 이동
+        } else {
+            console.error('서버 응답:', response.data);
+            alert('요청이 실패했습니다. 서버 응답을 확인하세요.');
         }
     } catch (error) {
-        console.error('기억 추가 실패:', error);
-        alert('기억 추가에 실패했습니다. 다시 시도해주세요.');
+        if (error.response) {
+            console.error('서버 응답:', error.response.data);
+            alert(`에러: ${error.response.data.message || '요청이 잘못되었습니다.'}`);
+        } else {
+            console.error('요청 실패:', error);
+            alert('기억 추가에 실패했습니다. 다시 시도해주세요.');
+        }
     }
 };
-
+ 
   return (
     <div>
       <div className="AddMemory-Top-bar">
@@ -63,7 +80,7 @@ const AddMemory = () => {
     
         <label htmlFor="image-upload" className="Image-Box">
           {image ? (
-            <img src={image} alt="업로드된 이미지" className="Preview-Image" />
+            <img src={URL.createObjectURL(image)} alt="업로드된 이미지" className="Preview-Image" />
           ) : (
             <span className='imageHover'>사진 추가하기</span>
           )}
@@ -93,6 +110,16 @@ const AddMemory = () => {
                 value={author} 
                 onChange={(e) => setAuthor(e.target.value)}/>
         </div>
+        <div className='AddMemoryPassword'>
+            <p>비밀번호</p>
+            <input 
+                type='password'
+                className='Memorytext'
+                value={password} 
+                placeholder='비밀번호는 숫자 4자리로 설정해주세요.'
+                onChange={(e) => setPassword(e.target.value)}/>
+          </div>
+          
        </div>
       </div>
       <button className='AddMemoryButton' onClick={handleAddMemory}>
