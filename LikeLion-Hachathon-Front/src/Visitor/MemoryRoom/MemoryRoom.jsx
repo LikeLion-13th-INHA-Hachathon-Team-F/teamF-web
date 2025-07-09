@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import axios from 'axios';
 import './MemoryRoom.css';
 import HTMLFlipBook from 'react-pageflip';
@@ -9,6 +10,7 @@ const MemoryRoom = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const { userpk } = useParams(); // URL에서 userPk를 가져옴
+
   const photosPerPage = 8;
   const [photoData, setPhotoData] = useState([]); // 서버에서 가져온 사진 데이터를 저장할 상태
 
@@ -17,7 +19,7 @@ const MemoryRoom = () => {
     try {
       console.log("사용자 pk:", userpk);
       console.log("사용한 인증 토큰:", localStorage.getItem('access_token'));
-      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`, { // 엔드포인트 수정 필요
+      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -31,13 +33,13 @@ const MemoryRoom = () => {
   };
 
   useEffect(() => {
-    if (!userPk) {
+    if (!userpk) { // userpk를 올바르게 참조
       alert('로그인이 필요합니다.');
       navigate('/'); // 로그인 페이지로 이동
     } else {
       fetchPhotoData(); // 컴포넌트가 마운트될 때 데이터 가져오기
     }
-  }, []);
+  }, [userpk])
 
   const totalPages = Math.ceil(photoData.length / photosPerPage);
   const startIndex = currentPage * photosPerPage;
@@ -113,7 +115,7 @@ const MemoryRoom = () => {
                 >
                     <img src={itemData.img_url} alt={itemData.description} className="photo-image" />
                     <div className="photo-description"><b>{itemData.description}</b></div>
-                    <div className="photo-name">{itemData.writer}</div> {/* 오타 수정 */}
+                    <div className="photo-name">{itemData.writer}</div>
                 </motion.div>
             );
         })}
