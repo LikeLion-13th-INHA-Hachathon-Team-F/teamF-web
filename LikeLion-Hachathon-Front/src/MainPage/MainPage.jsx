@@ -123,6 +123,7 @@ function MainPage() {
        <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
     </div>
 
+
     <div className="secondheadline">
   <div className="secondheadlinecontent">
     <div className="writingbox1">
@@ -144,7 +145,12 @@ function MainPage() {
       </div>
     </div>
   </div>
-</div>
+   </div>
+
+
+   <div className="thirdheadline">
+       <div className="thirdheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
+    </div>
 
 
     <div>

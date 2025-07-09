@@ -13,6 +13,9 @@
     padding: 10px 80px;
     height: 40px;
     border-bottom: 0.5px solid rgb(166, 166, 166);
+    position: fixed;
+    background-color: #f4f4f4;
+    
 
 }
 .Logo{
@@ -186,20 +189,35 @@
   max-width: 1100px; /* 최대 넓이 제한 */
   margin: 0 auto; /* 중앙 정렬 (선택사항) */
   padding: 60px 20px;
-  
+  margin-left: auto;          /* ✅ 오른쪽 정렬 핵심 */
+  margin-right: 0; 
 }
-
-.writingbox1 {
+.secondheadlinecontent2 {
+  display: flex;
+  justify-content: flex-start; /* 전체를 오른쪽으로 밀기 */
+  align-items: center;
+  gap: 30px; /* 텍스트와 이미지 사이 간격 */
+  max-width: 1100px; /* 최대 넓이 제한 */
+  margin: 0 auto; /* 중앙 정렬 (선택사항) */
+  padding: 60px 20px;
+  margin-right: auto;          /* ✅ 오른쪽 정렬 핵심 */
+  margin-left: 0; 
+}
+.writingbox1,.writingbox2 {
+    margin-right: 30px;
+    margin-left: auto;          /* ✅ 오른쪽 정렬 핵심 */
+  margin-right: 0; 
   max-width: 550px;
   /* 텍스트는 이미지 왼쪽에 딱 붙도록 flex 내부에서 자연스럽게 위치 */
 }
 
-.secondheadline-image {
+.secondheadline-image,.secondheadline-image2 {
   width: 500px;
   flex-shrink: 0; /* 이미지 크기 고정 */
+  
 }
 
-.box1headlink {
+.box1headlink,.box2headlink {
   font-size: 28px;
   font-weight: 800;
   color: #222;
@@ -214,12 +232,15 @@
   margin-top: 30px;
 }
 
-.box1content{
+.box1content,.box2content{
     padding-top: 30px;
+}
+.thirdheadline{
+    background-color: #fdfdfd;
+    height: 1000px;
+    border-bottom: 1px solid black;
+   
 }
 
-.box1content{
-    padding-top: 30px;
-}
 
 
