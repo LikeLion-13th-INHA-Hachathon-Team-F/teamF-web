@@ -55,6 +55,7 @@ function SignUp() {
         localStorage.setItem("refresh_token", data.refresh_token);
         
         localStorage.setItem("user_pk", data.user.id); // 사용자 pk 저장
+        localStorage.setItem("user_name", data.user.name);
 
 
         // 페이지 이동
