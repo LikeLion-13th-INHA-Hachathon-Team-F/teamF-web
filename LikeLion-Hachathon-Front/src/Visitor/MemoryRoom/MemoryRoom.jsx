@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 import './MemoryRoom.css';
 import HTMLFlipBook from 'react-pageflip';
 
@@ -8,22 +9,36 @@ const MemoryRoom = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const photosPerPage = 8;
+  const [photoData, setPhotoData] = useState([]); // 서버에서 가져온 사진 데이터를 저장할 상태
 
-  const photoData = [
-    // 총 16장 예시
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "2번 사진", name: "사람2", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' },
-    { description: "1번 사진", name: "사람1", imageUrl: '/KakaoTalk_20250630_124044283.jpg' }
-    // ... 14장 더 추가
-  ];
+  const userPk = localStorage.getItem('user_pk'); // 서버에서 제공한 사용자 pk를 저장한 경우
+
+
+  const fetchPhotoData = async () => {
+    try {
+      console.log("사용자 pk:", userPk);
+      console.log("사용한 인증 토큰:", localStorage.getItem('access_token'));
+      const response = await axios.get(`https://lastlink.p-e.kr/room/${userPk}/`, { // 엔드포인트 수정 필요
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      });
+      console.log("API 응답 데이터:", response.data); // 데이터 확인
+      setPhotoData(response.data); // 서버에서 가져온 데이터를 상태에 저장
+    } catch (error) {
+      console.error('사진 데이터 가져오기 실패:', error);
+      alert('사진 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.');
+    }
+  };
+
+  useEffect(() => {
+    if (!userPk) {
+      alert('로그인이 필요합니다.');
+      navigate('/'); // 로그인 페이지로 이동
+    } else {
+      fetchPhotoData(); // 컴포넌트가 마운트될 때 데이터 가져오기
+    }
+  }, []);
 
   const totalPages = Math.ceil(photoData.length / photosPerPage);
   const startIndex = currentPage * photosPerPage;
@@ -95,9 +110,9 @@ const MemoryRoom = () => {
               animate="show"
               exit={{ opacity: 0, y: -20 }}
             >
-              <img src={itemData.imageUrl} alt={itemData.description} className="photo-image" />
+              <img src={itemData.img_Url} alt={itemData.description} className="photo-image" />
               <div className="photo-description"><b>{itemData.description}</b></div>
-              <div className="photo-name">{itemData.name}</div>
+              <div className="photo-name">{itemData.wrtiter}</div>
             </motion.div>
           ))}
         </AnimatePresence>

@@ -1,10 +1,33 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React , { useState, useEffect }from "react";
+import { useNavigate , useParams } from "react-router-dom";
+import axios from "axios";
 import "./RIPView.css";
 
 
 function RIPView() {
     const navigate = useNavigate();
+    const { id } = useParams(); 
+    const [ripData, setRipData] = useState(null);
+
+    const fetchRIPData = async () => {
+        try {
+            const response = await axios.get(`https://lastlink.p-e.kr/remembrances/detail/${id}/`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+                },
+            });
+            console.log("API 응답 데이터:", response.data); // 데이터 확인
+            setRipData(response.data); // 서버에서 가져온 데이터를 상태에 저장
+        } catch (error) {
+            console.error("데이터 가져오기 실패:", error);
+            alert("데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.");
+        }
+    };  
+    
+    useEffect(() => {
+        console.log("URL에서 가져온 ID:", id); // ID 확인
+        fetchRIPData();
+    }, [id]);
 
     return (
         <div>
@@ -14,24 +37,22 @@ function RIPView() {
             </div>
 
             <div className="RIPView-Body">
-            <div className="RIPP-Title">
-                <div className="title">글 01</div>
-                <div className="name">작성자 이름</div>
-                
-                </div>
-                <div className="RIP">
-            
-                    <p>내용</p>
-    
+                {ripData ? (
+                        <>
+                            <div className="RIPP-Title">
+                                <div className="title">{ripData.title}</div>
+                                <div className="name">{ripData.name}</div>
+                            </div>
+                            <div className="RIP">
+                                <p>{ripData.content}</p>
+                            </div>
+                        </>
+                    ) : (
+                        <p>로딩 중...</p>
+                    )}
                 </div>
 
             </div>
-
-
-            
-
-        </div>
-
         
     );
 }

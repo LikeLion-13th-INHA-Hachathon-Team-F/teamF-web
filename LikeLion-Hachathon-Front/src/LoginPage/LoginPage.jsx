@@ -9,6 +9,7 @@ function LoginPage() {
     const navigate = useNavigate();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
