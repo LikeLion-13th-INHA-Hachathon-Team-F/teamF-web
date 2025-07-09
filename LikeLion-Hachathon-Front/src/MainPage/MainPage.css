@@ -7,7 +7,7 @@
 
 
 .Top-bar{
-    display: flex; 
+    /* display: flex; 
     justify-content: space-between;
     align-items: center; 
     padding: 10px 80px;
@@ -15,7 +15,13 @@
     position: fixed;
     background-color: #f4f4f4;
     width: 90%;
-    margin-top: 0px;
+    margin-top: 0px; */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 80px;
+    height: 40px;
+    border-bottom: 0.5px solid rgb(166, 166, 166);
 }
 .Top-bar.scrolled {
   background-color: rgba(255, 255, 255, 0.8); /* ✅ 약간 투명 */

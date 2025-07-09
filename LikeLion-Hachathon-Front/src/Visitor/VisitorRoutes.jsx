@@ -16,7 +16,7 @@ const VisitorRoutes = () => {
         <Route path="/:userpk" element= {<WelcomePage />}/>
         <Route path="/memoryroom/:userpk" element= {<MemoryRoom />}/>
         <Route path="/ripboard/:userpk" element={<RIPBoard />}/>
-        <Route path="/lastmessage:userpk" element={<LastMessage />}/>
+        <Route path="/lastmessage/:userpk" element={<LastMessage />}/>
         <Route path="/addmemory/:userpk" element={< AddMemory/>}/>
         <Route path='/addrip' element={<AddRIP/>}/>
         <Route path="/seelastmessage" element={<SeeLastMessage />} />

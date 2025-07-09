@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import './AddRIP.css';
 
 
 function AddRIP() {
     const navigate = useNavigate();
+
+    const { memberId } = useParams(); // URL에서 memberId를 가져옴
 
     const [title, setTitle] = useState(""); 
     const [author, setAuthor] = useState(""); 
@@ -36,6 +38,7 @@ function AddRIP() {
                 const response = await axios.post(
                     "https://lastlink.p-e.kr/remembrances/", // 서버 엔드포인트
                     {
+                        member_id: memberId, // member_id 추가
                         title: title.trim(),
                         writer: author.trim(),
                         content: content.trim(),
@@ -43,7 +46,7 @@ function AddRIP() {
                     },
                     {
                         headers: {
-                            Authorization: `Bearer ${accessToken}`,
+    
                             "Content-Type": "application/json",
                         },
                     }
@@ -63,8 +66,6 @@ function AddRIP() {
                 }
             }
         };
-    
-
 
     return(
         <div>

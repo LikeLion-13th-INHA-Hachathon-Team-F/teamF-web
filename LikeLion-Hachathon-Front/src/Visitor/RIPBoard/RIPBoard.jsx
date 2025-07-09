@@ -13,14 +13,10 @@ const RIPBoard = () => {
     const fetchRIPList = async () => {
         try {
             const response = await axios.get(`https://lastlink.p-e.kr/remembrances/${userpk}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-                },
             });
             setRipList(response.data); // 서버에서 가져온 데이터를 상태에 저장
         } catch (error) {
             console.error('데이터 가져오기 실패:', error);
-            alert('데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.');
         }
     };
 

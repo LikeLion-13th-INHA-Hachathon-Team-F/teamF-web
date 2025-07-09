@@ -21,13 +21,12 @@ const MemoryRoom = () => {
       console.log("사용한 인증 토큰:", localStorage.getItem('access_token'));
 
       
-      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`);
+      const response = await axios.get(`https://lastlink.p-e.kr/room/list/${userpk}/`);
 
       console.log("API 응답 데이터:", response.data); // 데이터 확인
       setPhotoData(response.data); // 서버에서 가져온 데이터를 상태에 저장
     } catch (error) {
       console.error('사진 데이터 가져오기 실패:', error);
-      alert('사진 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.');
     }
   };
 
@@ -88,6 +87,7 @@ const MemoryRoom = () => {
       </div>
 
       {/* 사진 리스트 */}
+      {photoData.length > 0 ? (
       <motion.div
         className="gallery"
         variants={container}
@@ -99,8 +99,6 @@ const MemoryRoom = () => {
         {currentPhotos.map((itemData, index) => {
             console.log("사진 데이터:", itemData); // 데이터 확인
 
-
-
             const handleDelete = async () => {
               const password = prompt("사진을 삭제하려면 비밀번호를 입력하세요:");
               if (!password) {
@@ -109,10 +107,8 @@ const MemoryRoom = () => {
               }
       
               try {
-                  const response = await axios.delete(`https://lastlink.p-e.kr/room/${userpk}/photo/${itemData.id}/`, {
-                      headers: {
-                          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-                      },
+                  const response = await axios.delete(`https://lastlink.p-e.kr/room/${itemData.id}/`, {
+                     
                       data: {
                           password: password, // 입력된 비밀번호를 서버로 전송
                       },
@@ -147,10 +143,14 @@ const MemoryRoom = () => {
                       삭제
                   </button>
                 </motion.div>
+                
             );
         })}
         </AnimatePresence>
       </motion.div>
+      ):(
+        <p className="no-memory-message">아직 생성된 기억이 없습니다.</p>
+      )} 
     </div>
   );
 };
