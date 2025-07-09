@@ -1,11 +1,32 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 import './LastMessage.css'
 import SeeLastMessage from '../SeeLastMessage/SeeLastMessage'
 
 
 const LastMessage = () => {
    const navigate = useNavigate();
+   const [lastMessages, setLastMessages] = useState([]); // 유서 리스트 상태 관리
+
+   
+   const fetchLastMessages = async () => {
+    try {
+        const response = await axios.get('https://lastlink.p-e.kr/letters/', { // 엔드포인트 수정 필요
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+            },
+        });
+        setLastMessages(response.data); // 서버에서 가져온 데이터를 상태에 저장
+    } catch (error) {
+        console.error('유서 데이터 가져오기 실패:', error);
+        alert('유서를 가져오는 데 실패했습니다. 다시 시도해주세요.');
+    }
+    };
+    useEffect(() => {
+        fetchLastMessages();
+    }, []);
+
     const handleMemory = () => {
           navigate("/visitor/memoryroom"); 
       }
@@ -37,29 +58,22 @@ const LastMessage = () => {
 
         <div className="Will-List-Title">메시지 리스트</div>
         <div className="Will-List">
-                    
-        
-                    <div className="hanjool">
-                        <div className="Will-List-Item">유서 제목01</div>
-                        <button className="modify-btn"  onClick={handleSeeLastMessage}
-                        >보기</button>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="Will-List-Item">유서 제목02</div>
-                        <button className="modify-btn" onClick={handleSeeLastMessage}>보기</button>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="Will-List-Item">유서 제목03</div>
-                        <button className="modify-btn" onClick={handleSeeLastMessage}>보기</button>
-                    </div>
-                  
-
-
-                   
-
-                </div>
+                {lastMessages.length > 0 ? (
+                    lastMessages.map((message) => (
+                        <div className="hanjool" key={message.id}>
+                            <div className="Will-List-Item">{message.title}</div>
+                            <button
+                                className="modify-btn"
+                                onClick={() => handleSeeLastMessage(message.id)}
+                            >
+                                보기
+                            </button>
+                        </div>
+                    ))
+                ) : (
+                    <p>유서가 없습니다.</p>
+                )}
+            </div>
       </div>
     )
 }
