@@ -27,10 +27,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4열 */
   grid-template-rows: repeat(2, auto);   /* 2행 (자동 높이) */
-  gap: 80px;
+  gap: 10px 10px; /* 행과 열 사이의 간격 */
   padding: 20px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .photo-card {
@@ -41,13 +41,15 @@
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 10px;
-  border-radius: 8px;
   overflow: hidden;
+  width: 300px; /* 카드 너비 */
+  height: 300px; /* 카드 높이 */
+  transition: transform 0.3s ease;
 }
 
 .photo-image {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
   object-fit: cover;
   background-color: #eee;
@@ -71,9 +73,35 @@
   align-self: baseline;
   padding-left: 30px;
 }
-.gallery-controls{
+.gallery-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  gap: 20px; /* 버튼 사이 간격 */
+}
+
+.gallery-controls button {
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-controls button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+  border-color: #999;
+}
+
+.gallery-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
 }
