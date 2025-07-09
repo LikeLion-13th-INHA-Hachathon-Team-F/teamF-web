@@ -71,8 +71,8 @@ const MemoryRoom = () => {
       <div className='VisitorBody'>
         <div className='VisitorIndex'>
           <p style={{ fontWeight: "bold" }}> 기억의 방</p>|
-          <p onClick={() => navigate("/visitor/ripboard")}>추모 게시판</p>|
-          <p onClick={() => navigate("/visitor/lastmessage")}>마지막 메시지</p>
+          <p onClick={() => navigate(`/visitor/ripboard/${userpk}`)}>추모 게시판</p>|
+          <p onClick={() => navigate(`/visitor/lastmessage/${userpk}`)}>마지막 메시지</p>
         </div>
       </div>
 

@@ -1,16 +1,18 @@
 import React, { useState, useEffect }  from 'react'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios';
 import './RIPBoard.css'; // CSS 파일을 import
 
 
 const RIPBoard = () => {
     const navigate = useNavigate();
+    const { userpk } = useParams(); // URL에서 userpk를 가져옴
+
     const [ripList, setRipList] = useState([]);
 
     const fetchRIPList = async () => {
         try {
-            const response = await axios.get('https://lastlink.p-e.kr/remembrances/', {
+            const response = await axios.get(`https://lastlink.p-e.kr/remembrances/${userpk}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                 },
@@ -29,10 +31,10 @@ const RIPBoard = () => {
 
 
   const handleMemory = () => {
-        navigate("/visitor/memoryroom"); // 로그인 성공 시 메인 페이지로 이동
+        navigate(`/visitor/memoryroom/${userpk}`); // 로그인 성공 시 메인 페이지로 이동
     }
    const handleLastMessage = () => {
-        navigate("/visitor/lastmessage"); 
+        navigate(`/visitor/lastmessage/${userpk}`); 
     }
     const handleLogin = () => {
         navigate("/"); // 로그인 페이지로 이동

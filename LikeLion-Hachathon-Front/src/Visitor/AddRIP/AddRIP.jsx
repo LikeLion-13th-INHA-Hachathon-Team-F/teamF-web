@@ -49,6 +49,8 @@ function AddRIP() {
                     }
                 );
                 if (response.status === 201) {
+                    const remembranceId = response.data.id; // 서버에서 반환된 pk
+                    localStorage.setItem("remembrance_pk", remembranceId); // 로컬 스토리지에 저장
                     alert("글이 성공적으로 작성되었습니다!");
                     navigate(-1); // 이전 페이지로 이동
                 }

@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , useParams} from 'react-router-dom'
 import axios from 'axios'
 import './LastMessage.css'
+
 import SeeLastMessage from '../SeeLastMessage/SeeLastMessage'
 
 
 const LastMessage = () => {
    const navigate = useNavigate();
+    const userpk = localStorage.getItem("user_pk"); 
    const [lastMessages, setLastMessages] = useState([]); // 유서 리스트 상태 관리
 
    
@@ -28,10 +30,10 @@ const LastMessage = () => {
     }, []);
 
     const handleMemory = () => {
-          navigate("/visitor/memoryroom"); 
+          navigate(`/visitor/memoryroom/${userpk}`); 
       }
     const handleRIP = () => {
-          navigate("/visitor/ripboard"); 
+          navigate(`/visitor/ripboard/${userpk}`); 
       }
     const handleLogin = () => {
         navigate("/"); // 로그인 페이지로 이동
