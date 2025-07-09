@@ -53,6 +53,8 @@ function SignUp() {
         // 예: 토큰 저장
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("refresh_token", data.refresh_token);
+        localStorage.setItem("user_pk", data.user.id); // 사용자 pk 저장
+
 
         // 페이지 이동
         navigate("/");

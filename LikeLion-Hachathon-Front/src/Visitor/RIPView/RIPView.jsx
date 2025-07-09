@@ -8,6 +8,8 @@ function RIPView() {
     const navigate = useNavigate();
     const { id } = useParams(); 
     const [ripData, setRipData] = useState(null);
+    const [loading, setLoading] = useState(true); // 로딩 상태 관리
+    const [error, setError] = useState(null); // 에러 상태 관리
 
     const fetchRIPData = async () => {
         try {
@@ -18,9 +20,13 @@ function RIPView() {
             });
             console.log("API 응답 데이터:", response.data); // 데이터 확인
             setRipData(response.data); // 서버에서 가져온 데이터를 상태에 저장
+            setLoading(false); // 로딩 완료
+
         } catch (error) {
             console.error("데이터 가져오기 실패:", error);
             alert("데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.");
+            setLoading(false); // 로딩 완료
+
         }
     };  
     
@@ -41,7 +47,7 @@ function RIPView() {
                         <>
                             <div className="RIPP-Title">
                                 <div className="title">{ripData.title}</div>
-                                <div className="name">{ripData.name}</div>
+                                <div className="writer">{ripData.writer}</div>
                             </div>
                             <div className="RIP">
                                 <p>{ripData.content}</p>

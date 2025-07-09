@@ -55,30 +55,38 @@ function MainPage() {
     },[]);
 
     useEffect(() => {
-    const fetchletterData = async () => {
-        const accessToken = localStorage.getItem("access_token");
-        if (!accessToken) {
-            console.error("토큰이 없습니다. 로그인하세요.");
-            return;
+        const fetchletterData = async () => {
+            const accessToken = localStorage.getItem("access_token");
+            if (!accessToken) {
+                console.error("토큰이 없습니다. 로그인하세요.");
+                return;
+            }
+    
+            const userPk = localStorage.getItem("user_pk"); // 사용자 pk를 localStorage에서 가져옴
+            if (!userPk) {
+                console.error("사용자 pk가 없습니다.");
+                return;
+            }
+    
+    
+            try {
+                const response = await axios.get(`https://lastlink.p-e.kr/letters/${userPk}/`, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
+                console.log("유서 데이터 가져오기 성공:", response.data);
+                setLetterData(response.data); // 유서 데이터를 반환
+            } catch (error) {
+                console.error("유서 데이터 가져오기 실패:", error);
+            }
         }
-        try {
-            const response = await axios.get("https://lastlink.p-e.kr/letters/", {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-            console.log("유서 데이터 가져오기 성공:", response.data);
-            setLetterData(response.data); // 유서 데이터를 반환
-        } catch (error) {
-            console.error("유서 데이터 가져오기 실패:", error);
+        fetchletterData();
+        }, []);
+    
+        if (!userData) {
+            return <div className="loading">Loading...</div>; // 데이터가 로드될 때까지 로딩
         }
-    }
-    fetchletterData();
-    }, []);
-
-    if (!userData) {
-        return <div className="loading">Loading...</div>; // 데이터가 로드될 때까지 로딩
-    }
 
     return(
         <div>
