@@ -4,7 +4,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import SignUp from "./SignUp/SignUp";
 import MainPage from "./MainPage/MainPage";
 import WriteWill from "./WriteWill/WriteWill";
-import Modify from "./modify/Modify";
+import Modify from "./Modify/Modify";
 import VisitorRoutes from "./Visitor/VisitorRoutes";
 
 function App() {
