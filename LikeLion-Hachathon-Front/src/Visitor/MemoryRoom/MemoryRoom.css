@@ -24,8 +24,9 @@
     color: white;
 }
 .gallery {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4열 */
+  grid-template-rows: repeat(2, auto);   /* 2행 (자동 높이) */
   gap: 80px;
   padding: 20px;
   padding-left: 150px;
@@ -42,7 +43,8 @@
   padding: 10px;
   border-radius: 8px;
   overflow: hidden;
-  width: 500px;
+  width: 100px;
+  height: 100px;
 }
 
 .photo-image {
@@ -52,6 +54,9 @@
   object-fit: cover;
   background-color: #eee;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+   object-fit: cover;
 
 }
 
