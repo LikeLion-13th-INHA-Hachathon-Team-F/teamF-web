@@ -20,7 +20,7 @@ const VisitorRoutes = () => {
         <Route path="/addmemory/:userpk" element={< AddMemory/>}/>
         <Route path='/addrip/:userpk' element={<AddRIP/>}/>
         <Route path="/seelastmessage/:id" element={<SeeLastMessage />} />
-        <Route path="/ripview" element={<RIPView />} />
+        <Route path="/ripview/:id" element={<RIPView />} />
       </Routes> 
    
     

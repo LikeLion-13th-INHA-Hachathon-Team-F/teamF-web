@@ -14,9 +14,7 @@ function RIPView() {
     const fetchRIPData = async () => {
         try {
             const response = await axios.get(`https://lastlink.p-e.kr/remembrances/detail/${id}/`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-                },
+               
             });
             console.log("API 응답 데이터:", response.data); // 데이터 확인
             setRipData(response.data); // 서버에서 가져온 데이터를 상태에 저장
