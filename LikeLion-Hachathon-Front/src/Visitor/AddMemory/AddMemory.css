@@ -48,7 +48,7 @@
     border-radius: 5px;
     margin-left: 500px;
     display: flex;
-    margin-top: 100px;
+
     margin-right: 90px;
     margin-bottom: 30px;
     border: 1px solid #ddd;
@@ -56,11 +56,12 @@
 }
 .AddMemoryBody{
     display: flex;
-}
-.AddMemoryContent{
     margin-top: 100px;
-    gap: 30px;
+    justify-content: center;
+
+
 }
+
 .Preview-Image {
   width: 100%;
   height: 100%;
@@ -87,10 +88,18 @@
     color: #333;
     font-family: 'Noto Sans KR', sans-serif;
 }
-.AddMemoryAuthor, .AddMemoryTitle, .AddMemoryPassword{
-    margin-top: 50px;
-}
 .imageHover:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
+}
+
+
+.AddMemoryContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    gap: 20px
+
 }
