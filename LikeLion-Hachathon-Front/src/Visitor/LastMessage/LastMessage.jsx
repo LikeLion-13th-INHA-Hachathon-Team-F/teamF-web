@@ -34,8 +34,8 @@ const LastMessage = () => {
     const handleLogin = () => {
         navigate("/"); // 로그인 페이지로 이동
     }
-    const handleSeeLastMessage = () => {
-        navigate("/visitor/seelastmessage"); // 마지막 메시지 보기 페이지로 이동
+    const handleSeeLastMessage = (id) => {
+        navigate(`/visitor/seelastmessage/${id}`); // 마지막 메시지 보기 페이지로 이동
     }
 
 

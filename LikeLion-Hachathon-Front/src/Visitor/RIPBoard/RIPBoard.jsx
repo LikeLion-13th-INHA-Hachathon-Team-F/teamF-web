@@ -12,7 +12,8 @@ const RIPBoard = () => {
 
     const fetchRIPList = async () => {
         try {
-            const response = await axios.get(`https://lastlink.p-e.kr/remembrances/${userpk}`, {
+            const response = await axios.get(`https://lastlink.p-e.kr/remembrances/list/${userpk}`, {
+
             });
             setRipList(response.data); // 서버에서 가져온 데이터를 상태에 저장
         } catch (error) {
@@ -37,7 +38,7 @@ const RIPBoard = () => {
     }
 
     const handleAdd = () => {
-        navigate("/visitor/addrip");
+        navigate(`/visitor/addrip/${userpk}`); // 글쓰기 페이지로 이동
     }
 
     const handleView = (id) => {

@@ -18,8 +18,8 @@ const VisitorRoutes = () => {
         <Route path="/ripboard/:userpk" element={<RIPBoard />}/>
         <Route path="/lastmessage/:userpk" element={<LastMessage />}/>
         <Route path="/addmemory/:userpk" element={< AddMemory/>}/>
-        <Route path='/addrip' element={<AddRIP/>}/>
-        <Route path="/seelastmessage" element={<SeeLastMessage />} />
+        <Route path='/addrip/:userpk' element={<AddRIP/>}/>
+        <Route path="/seelastmessage/:id" element={<SeeLastMessage />} />
         <Route path="/ripview" element={<RIPView />} />
       </Routes> 
    
