@@ -1,4 +1,4 @@
-import './Modify.css'
+import './Modi.css'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
@@ -6,9 +6,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-
-const Modify = () => {
-      const {id} = useParams(); // URL에서 유서 ID를 가져옴
+function Modi() {
+    const {id} = useParams(); // URL에서 유서 ID를 가져옴
       const navigate = useNavigate();
       const [activeTip, setActiveTip] = useState(null); 
     
@@ -256,6 +255,6 @@ const Modify = () => {
 
     </div>
   ) 
-
 }
-export default Modify
+
+export default Modi;

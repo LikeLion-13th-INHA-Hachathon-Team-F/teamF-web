@@ -14,7 +14,7 @@ function MainPage() {
     }
 
     const handlemodify = (letterId) => {
-    navigate(`/modify/${letterId}`); // 유서 ID를 URL에 포함하여 수정 페이지로 이동
+    navigate(`/modi/${letterId}`); // 유서 ID를 URL에 포함하여 수정 페이지로 이동
     };
 
     const toggleEmailMenu = () => {

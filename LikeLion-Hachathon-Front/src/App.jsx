@@ -4,7 +4,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import SignUp from "./SignUp/SignUp";
 import MainPage from "./MainPage/MainPage";
 import WriteWill from "./WriteWill/WriteWill";
-import Modify from "./Modify/Modify";
+import Modi from "./Modi/Modi";
 import VisitorRoutes from "./Visitor/VisitorRoutes";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/writewill" element={<WriteWill />} />
-        <Route path="/modify/:id" element={<Modify />} />
+        <Route path="/modi/:id" element={<Modi />} />
         {/* Visitor Routes */}
          <Route path="/visitor/*" element={<VisitorRoutes />} />
       </Routes>
