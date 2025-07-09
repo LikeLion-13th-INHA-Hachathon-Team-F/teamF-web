@@ -11,6 +11,27 @@ function MainPage() {
     const gowill = () => {
       navigate("/gowill");
     }
+    const smoothScrollDown = (distance = 2000, duration = 1000) => {
+  const start = window.scrollY;
+  const end = start + distance;
+  const startTime = performance.now();
+
+  const animateScroll = (currentTime) => {
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1); // 0 ~ 1
+    const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+
+    window.scrollTo(0, start + (end - start) * ease);
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  };
+
+  requestAnimationFrame(animateScroll);
+};
+
+
     const handleWriteWill = () => {
         navigate("/writewill"); // 유서 작성 페이지로 이동
     }
@@ -84,6 +105,8 @@ function MainPage() {
 
       {/* 메뉴 전체 감싸는 div에 onMouseLeave */}
       {/*유서 작성과 작성한 글들 보임 */}
+      <div className="wrapandwill">
+      <div className="gotowill" onClick={handleWriteWill}>유서 작성하기</div>
       <div 
         className="email-wrapper"
         onMouseEnter={toggleEmailMenu}
@@ -104,12 +127,15 @@ function MainPage() {
           </div>
         )}
       </div>
+      </div>
     </div>
 
     <div className="Body">
 
     <div className="mainheadline">
        <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
+       <div className="gotodown"  
+  onMouseEnter={() => smoothScrollDown(1050, 1500)}>dd </div>
     </div>
 
 
@@ -134,16 +160,18 @@ function MainPage() {
       </div>
     </div>
   </div>
+   <div className="gotodown"  
+  onMouseEnter={() => smoothScrollDown(1000, 1500)}> ssss</div>
    </div>
 
 
    <div className="thirdheadline">
-       <div className="thirdheadlinecontent">암튼 좋다!</div>
+       <div className="thirdheadlinecontent">..</div>
     </div>
 
 
     <button className="startbutton" onClick={gowill}>
-      지금 시작하기
+      유서 작성하러 가기
     </button>
     
 </div>
