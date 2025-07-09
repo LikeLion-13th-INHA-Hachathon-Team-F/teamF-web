@@ -4,6 +4,7 @@ import axios from 'axios';
 import './RIPBoard.css'; // CSS 파일을 import
 
 
+
 const RIPBoard = () => {
     const navigate = useNavigate();
     const { userpk } = useParams(); // URL에서 userpk를 가져옴
