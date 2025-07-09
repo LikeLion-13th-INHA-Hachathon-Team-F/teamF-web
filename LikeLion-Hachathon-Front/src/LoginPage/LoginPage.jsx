@@ -30,8 +30,20 @@ function LoginPage() {
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("refresh_token", data.refresh_token);
 
-            // 페이지 이동
+
+            // const summaryRes = await axios.get("https://lastlink.p-e.kr/members/summary/", {
+            //     headers: {
+            //         Authorization: `Bearer ${data.access_token}`,
+            //     }
+            // });
+         
+
+            // const userpk = summaryRes.data.id;
+            // // 페이지 이동
+            //console.log("유저 pk:", userpk);
+
             navigate("/mainpage");
+
 
         } catch (error) {
             console.error("로그인 중 오류 발생:", error);

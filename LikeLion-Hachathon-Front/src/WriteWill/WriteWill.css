@@ -71,6 +71,7 @@
 
 
 
+    background-color: rgb(244, 243, 240);
 
 
     border: 1px solid #ddd;
@@ -80,26 +81,45 @@
     align-items: center;
     padding: 5px 0;
     width: 30%;
+    border: 1px solid #8a8a8a ;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 
 
     
 }
 .WritingTip{
+    
     background-color: #F7F7F7;
     border-radius: 10px;
     width: 65%;
     padding: 5px 20px;
-    margin-top: 20px;
+    margin:8px 0;
+    border: 1px solid #adadad;
 }
 
 .ex{
+    
     color: #6B8C5F;
 }
 .WritingTipHead{
-    padding-right: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 세로 방향으로 가운데 정렬 */
+    justify-content: center; 
+    width: 100%;
     color: gray;
+
+    text-align: left;
     padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1.5px solid #ffffff;
+    font-weight: 600;
+}
+
+.WritingTipHead p{
+    
+    
+    padding-left: 20px;
+
 }
 .WriteWill-Write-Textarea{
     width: 94%;

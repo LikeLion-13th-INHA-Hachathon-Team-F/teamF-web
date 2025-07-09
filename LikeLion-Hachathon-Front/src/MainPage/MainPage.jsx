@@ -109,8 +109,8 @@ function MainPage() {
       <div className="gotowill" onClick={handleWriteWill}>유서 작성하기</div>
       <div 
         className="email-wrapper"
-        onMouseEnter={toggleEmailMenu}
-        onMouseLeave={() => setIsEmailMenuVisible(false)}
+        onClick={toggleEmailMenu}
+        onMouseLeave={() => setEmailMenuVisible(false)}
       >
         <div className="email">☰</div>
 
@@ -142,7 +142,7 @@ function MainPage() {
     <div className="secondheadline">
   <div className="secondheadlinecontent">
     <div className="writingbox1">
-      <div className="box1headlink">단절된 기억을 기술로 잇습니다.</div>
+      <div className="box1headlink">"단절된 기억을 기술로 잇습니다."</div>
       <div className="box1content">
       유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
       고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.
@@ -153,7 +153,7 @@ function MainPage() {
   <div className="secondheadlinecontent2">
     <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image2" />
     <div className="writingbox2">
-      <div className="box2headlink">단절된 기억을 기술로 잇습니다.</div>
+      <div className="box2headlink">“남겨진 이야기, 그리고 추억. 함께 기억해요.”</div>
       <div className="box2content">
       유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
       고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.

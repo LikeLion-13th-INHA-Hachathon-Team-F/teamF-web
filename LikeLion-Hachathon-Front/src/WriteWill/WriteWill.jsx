@@ -63,13 +63,15 @@ const WriteWill = () => {
                  type='text' 
                  className='WriteWill-Write-Contents'
                  value={title}
-                 onChange={(e) => setTitle(e.target.value)} 
+                 onChange={(e) => setTitle(e.target.value)}
+                 placeholder='제목을 입력하세요.' 
                  />
                 <p className='WriteWill-p'>내용</p>
                 <textarea 
                  className='WriteWill-Write-Textarea'
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
+                  placeholder='마지막 메시지를 작성하세요.'
                 />
                 <br/>
                 <div className="Buttons-Wrapper">
@@ -79,7 +81,9 @@ const WriteWill = () => {
                 </div>
         </div>
         <div className='WriteWill-WritingTips'>
-            <p className='WritingTipHead'>작성 도움말</p>
+            <div className='WritingTipHead'>
+              <p>작성 도움말</p>
+            </div>
             <div className='WritingTip' onClick={() => toggleTip(1)}>
             <p className='TextTitle'>전산으로 확인하기 어려운 자산</p>
             {activeTip === 1 && (
