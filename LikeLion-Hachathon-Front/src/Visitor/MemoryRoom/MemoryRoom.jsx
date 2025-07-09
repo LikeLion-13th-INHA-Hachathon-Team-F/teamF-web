@@ -19,11 +19,10 @@ const MemoryRoom = () => {
     try {
       console.log("사용자 pk:", userpk);
       console.log("사용한 인증 토큰:", localStorage.getItem('access_token'));
-      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-        },
-      });
+
+      
+      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`);
+
       console.log("API 응답 데이터:", response.data); // 데이터 확인
       setPhotoData(response.data); // 서버에서 가져온 데이터를 상태에 저장
     } catch (error) {
@@ -33,13 +32,8 @@ const MemoryRoom = () => {
   };
 
   useEffect(() => {
-    if (!userpk) { // userpk를 올바르게 참조
-      alert('로그인이 필요합니다.');
-      navigate('/'); // 로그인 페이지로 이동
-    } else {
-      fetchPhotoData(); // 컴포넌트가 마운트될 때 데이터 가져오기
-    }
-  }, [userpk])
+    fetchPhotoData(); // 고인 userpk만 필요함
+  }, [userpk]);
 
   const totalPages = Math.ceil(photoData.length / photosPerPage);
   const startIndex = currentPage * photosPerPage;
@@ -82,7 +76,7 @@ const MemoryRoom = () => {
         </div>
       </div>
 
-      <button className='VisitorButton' onClick={() => navigate("/visitor/addmemory")}>
+      <button className='VisitorButton' onClick={() => navigate(`/visitor/addmemory/${userpk}`)}>
         기억 추가하기
       </button>
 

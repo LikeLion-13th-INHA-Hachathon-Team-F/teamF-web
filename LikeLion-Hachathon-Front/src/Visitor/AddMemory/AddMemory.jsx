@@ -2,10 +2,13 @@ import React from 'react'
 import './AddMemory.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 const AddMemory = () => {
     const navigate = useNavigate();
+    const { userpk } = useParams();
+    
      const [image, setImage] = useState(null);
      const [description, setDescription] = useState(''); 
      const [author, setAuthor] = useState(''); 

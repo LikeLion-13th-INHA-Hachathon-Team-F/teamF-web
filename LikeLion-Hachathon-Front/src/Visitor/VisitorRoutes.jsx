@@ -12,14 +12,12 @@ import RIPView from './RIPView/RIPView.jsx'
 
 const VisitorRoutes = () => {
   return ( 
-    
       <Routes>
-        <Route path="/" element= {<WelcomePage />}/>
+        <Route path="/:userpk" element= {<WelcomePage />}/>
         <Route path="/memoryroom/:userpk" element= {<MemoryRoom />}/>
-
         <Route path="/ripboard" element={<RIPBoard />}/>
         <Route path="/lastmessage" element={<LastMessage />}/>
-        <Route path="/addmemory" element={< AddMemory/>}/>
+        <Route path="/addmemory/:userpk" element={< AddMemory/>}/>
         <Route path='/addrip' element={<AddRIP/>}/>
         <Route path="/seelastmessage" element={<SeeLastMessage />} />
         <Route path="/ripview" element={<RIPView />} />
