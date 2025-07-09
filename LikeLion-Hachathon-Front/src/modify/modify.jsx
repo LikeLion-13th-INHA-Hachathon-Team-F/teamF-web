@@ -55,14 +55,14 @@ const Modify = () => {
 
 
     useEffect(() => {
-      const fetchLetterData = async () => {
+      const fetchLetterData = async () => {   //유서 정보 가져오기
         const accessToken = localStorage.getItem("access_token");
         if (!accessToken) {
             console.error("토큰이 없습니다. 로그인하세요.");
             return;
         }
         try {
-            const response = await axios.get(`https://lastlink.p-e.kr/letters/${id}/`, {
+            const response = await axios.get(`https://lastlink.p-e.kr/letters/detail/${id}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -77,7 +77,7 @@ const Modify = () => {
       fetchLetterData();
     }, []);
 
-    const handleDelete = async () => {
+    const handleDelete = async () => {   //삭제하기
         const accessToken = localStorage.getItem("access_token");
         if (!accessToken) {
             alert("로그인이 필요합니다. 로그인 후 다시 시도해주세요.");
