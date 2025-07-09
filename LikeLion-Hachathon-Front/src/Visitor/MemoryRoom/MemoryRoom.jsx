@@ -8,17 +8,16 @@ import HTMLFlipBook from 'react-pageflip';
 const MemoryRoom = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
+  const { userpk } = useParams(); // URL에서 userPk를 가져옴
   const photosPerPage = 8;
   const [photoData, setPhotoData] = useState([]); // 서버에서 가져온 사진 데이터를 저장할 상태
-
-  const userPk = localStorage.getItem('user_pk'); // 서버에서 제공한 사용자 pk를 저장한 경우
 
 
   const fetchPhotoData = async () => {
     try {
-      console.log("사용자 pk:", userPk);
+      console.log("사용자 pk:", userpk);
       console.log("사용한 인증 토큰:", localStorage.getItem('access_token'));
-      const response = await axios.get(`https://lastlink.p-e.kr/room/${userPk}/`, { // 엔드포인트 수정 필요
+      const response = await axios.get(`https://lastlink.p-e.kr/room/${userpk}/`, { // 엔드포인트 수정 필요
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -101,20 +100,23 @@ const MemoryRoom = () => {
         key={currentPage} // 페이지 바뀌면 key 바뀌어서 AnimatePresence 작동
       >
         <AnimatePresence mode="wait">
-          {currentPhotos.map((itemData, index) => (
-            <motion.div
-              key={itemData.imageUrl + index}
-              className="photo-card"
-              variants={item}
-              initial="hidden"
-              animate="show"
-              exit={{ opacity: 0, y: -20 }}
-            >
-              <img src={itemData.img_Url} alt={itemData.description} className="photo-image" />
-              <div className="photo-description"><b>{itemData.description}</b></div>
-              <div className="photo-name">{itemData.wrtiter}</div>
-            </motion.div>
-          ))}
+        {currentPhotos.map((itemData, index) => {
+            console.log("사진 데이터:", itemData); // 데이터 확인
+            return (
+                <motion.div
+                    key={itemData.img_url + index}
+                    className="photo-card"
+                    variants={item}
+                    initial="hidden"
+                    animate="show"
+                    exit={{ opacity: 0, y: -20 }}
+                >
+                    <img src={itemData.img_url} alt={itemData.description} className="photo-image" />
+                    <div className="photo-description"><b>{itemData.description}</b></div>
+                    <div className="photo-name">{itemData.writer}</div> {/* 오타 수정 */}
+                </motion.div>
+            );
+        })}
         </AnimatePresence>
       </motion.div>
     </div>
