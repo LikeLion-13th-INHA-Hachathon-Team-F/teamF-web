@@ -83,25 +83,69 @@ function MainPage() {
     return(
         <div>
             <div className="Top-bar">
-                <div className="Logo">lastLink</div>
-                <div className="email" onClick={toggleEmailMenu}>{userData.login_id}</div>
-                {isEmailMenuVisible && (
-                    <div className="email-menu">
-                        <ul>
-                            <li onClick={()=>setShowQR(true)}>link connection</li>
-                            
-                            {showQR && <QR onclose={()=>setShowQR(false)} />}
-                            <li onClick={handleLogout}>logOut</li>
-                        </ul>
-                    </div>
-                )}
-            </div>
+      <div className="Logo">lastLink</div>
 
-            <div className="Body">
-  <button 
+      {/* 메뉴 전체 감싸는 div에 onMouseLeave */}
+      {/*유서 작성과 작성한 글들 보임 */}
+      <div 
+        className="email-wrapper"
+        onMouseEnter={toggleEmailMenu}
+        onMouseLeave={() => setIsEmailMenuVisible(false)}
+      >
+        <div className="email">☰</div>
+
+        {isEmailMenuVisible && (
+          <div className="email-menu">
+            <ul>
+              <div className="email-menu-name">
+                <li>{userData.name} 님</li>
+              </div>
+              <li onClick={() => setShowQR(true)}>link connection</li>
+              {showQR && <QR onclose={() => setShowQR(false)} />}
+              <li onClick={handleLogout}>logOut</li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div className="Body">
+
+    <div className="mainheadline">
+       <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
+    </div>
+
+    <div className="secondheadline">
+  <div className="secondheadlinecontent">
+    <div className="writingbox1">
+      <div className="box1headlink">단절된 기억을 기술로 잇습니다.</div>
+      <div className="box1content">
+      유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
+      고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.
+      </div>
+    </div>
+    <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image" />
+  </div>
+  <div className="secondheadlinecontent2">
+    <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image2" />
+    <div className="writingbox2">
+      <div className="box2headlink">단절된 기억을 기술로 잇습니다.</div>
+      <div className="box2content">
+      유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
+      고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div>
+
+    </div>
+    <button 
     className="Write-will-button"
     onClick={handleWriteWill} 
-  >
+    >
     유서작성하기
   </button>
 
