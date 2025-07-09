@@ -8,7 +8,9 @@ import { useEffect } from "react";
 function MainPage() {
     const navigate = useNavigate();
     const [isEmailMenuVisible, setEmailMenuVisible] = useState(false);
-
+    const gowill = () => {
+      navigate("/gowill");
+    }
     const handleWriteWill = () => {
         navigate("/writewill"); // 유서 작성 페이지로 이동
     }
@@ -28,6 +30,21 @@ function MainPage() {
     const [userData, setUserData] = useState(null);
     const [letterData, setLetterData] = useState(null);
     
+
+    useEffect(() => {
+    const handleScroll = () => {
+       if (!topBar) return;
+      const topBar = document.querySelector(".Top-bar");
+      if (window.scrollY > 50) {
+        topBar.classList.add("scrolled");
+      } else {
+        topBar.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
 
     useEffect(() => {
@@ -54,35 +71,7 @@ function MainPage() {
     fetchData();
     },[]);
 
-    useEffect(() => {
-        const fetchletterData = async () => {
-            const accessToken = localStorage.getItem("access_token");
-            if (!accessToken) {
-                console.error("토큰이 없습니다. 로그인하세요.");
-                return;
-            }
-    
-            const userPk = localStorage.getItem("user_pk"); // 사용자 pk를 localStorage에서 가져옴
-            if (!userPk) {
-                console.error("사용자 pk가 없습니다.");
-                return;
-            }
-    
-    
-            try {
-                const response = await axios.get(`https://lastlink.p-e.kr/letters/${userPk}/`, {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                });
-                console.log("유서 데이터 가져오기 성공:", response.data);
-                setLetterData(response.data); // 유서 데이터를 반환
-            } catch (error) {
-                console.error("유서 데이터 가져오기 실패:", error);
-            }
-        }
-        fetchletterData();
-        }, []);
+ 
     
         if (!userData) {
             return <div className="loading">Loading...</div>; // 데이터가 로드될 때까지 로딩
@@ -149,39 +138,14 @@ function MainPage() {
 
 
    <div className="thirdheadline">
-       <div className="thirdheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
+       <div className="thirdheadlinecontent">암튼 좋다!</div>
     </div>
 
 
-    <div>
-
-    </div>
-    <button 
-    className="Write-will-button"
-    onClick={handleWriteWill} 
-    >
-    유서작성하기
-  </button>
-
-  <div className="Will-List-Title">작성된 유서 목록</div>
-
-  <div className="Will-List">
-    {letterData && letterData.length > 0 ? (
-      letterData.map((letter) => (
-        <div className="hanjool" key={letter.id}>
-          <div className="Will-List-Item">{letter.title}</div>
-          <button 
-            className="modify-btn"
-            onClick={() => handlemodify(letter.id)}  // 유서 ID를 넘길 수 있도록 변경
-          >
-            수정
-          </button>
-        </div>
-      ))
-    ) : (
-      <p>작성된 유서가 없습니다.</p>
-    )}
-  </div>
+    <button className="startbutton" onClick={gowill}>
+      지금 시작하기
+    </button>
+    
 </div>
 
 

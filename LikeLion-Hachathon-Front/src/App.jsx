@@ -6,6 +6,7 @@ import MainPage from "./MainPage/MainPage";
 import WriteWill from "./WriteWill/WriteWill";
 import Modi from "./Modi/Modi";
 import VisitorRoutes from "./Visitor/VisitorRoutes";
+import GoWill from "./GoWill/GoWill";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/modi/:id" element={<Modi />} />
         {/* Visitor Routes */}
          <Route path="/visitor/*" element={<VisitorRoutes />} />
+         <Route path="/gowill" element={<GoWill />} />
+
       </Routes>
     </Router>
   );
