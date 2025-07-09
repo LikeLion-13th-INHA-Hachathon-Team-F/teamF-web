@@ -8,7 +8,7 @@ import axios from "axios";
 const AddMemory = () => {
     const navigate = useNavigate();
     const { userpk } = useParams();
-    
+
      const [image, setImage] = useState(null);
      const [description, setDescription] = useState(''); 
      const [author, setAuthor] = useState(''); 
@@ -21,12 +21,7 @@ const AddMemory = () => {
       }
   };
   const handleAddMemory = async () => {
-    const accessToken = localStorage.getItem('access_token');
-    if (!accessToken) {
-        alert('로그인이 필요합니다.');
-        return;
-    }
-
+    
     if (!image || !description || !author || !password) {
         alert('모든 필드를 입력해주세요.');
         return;
@@ -39,10 +34,19 @@ const AddMemory = () => {
     }
 
     const formData = new FormData();
-    formData.append('image', image); 
+    formData.append('member_id', userpk);
+    formData.append('img_file', image); 
     formData.append('description', description); 
     formData.append('writer', author); 
     formData.append('password', password); 
+
+    console.log("요청 바디:", {
+      member_id: userpk,
+      img_file: image,
+      description: description,
+      writer: author,
+      password: password,
+  });
 
     try {
         const response = await axios.post(
@@ -50,7 +54,6 @@ const AddMemory = () => {
             formData,
             {
                 headers: {
-                    Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data', 
                 },
             }

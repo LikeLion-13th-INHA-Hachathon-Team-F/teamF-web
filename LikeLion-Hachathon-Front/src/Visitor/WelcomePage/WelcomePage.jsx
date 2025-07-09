@@ -1,14 +1,32 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios';
 import './WelcomePage.css'
 
 const WelcomePage = () => {
-     const navigate = useNavigate();
+    const navigate = useNavigate();
+    const { userpk } = useParams(); // URL에서 userpk를 가져옴
+    const [username, setUsername] = useState(""); // 서버에서 가져온 회원 이름 상태
 
 
-    const userpk = localStorage.getItem("user_pk");  
-    const username = localStorage.getItem("user_name");
+    const fetchUserName = async () => {
+      try {
+          if (!userpk) {
+              console.error("사용자 pk가 없습니다.");
+              return;
+          }
+          const response = await axios.get(`https://lastlink.p-e.kr/members/summary/${userpk}/`);
+          console.log("API 응답 데이터:", response.data);
+          setUsername(response.data.name); // 응답 데이터에서 이름 가져오기
+      } catch (error) {
+          console.error("회원 이름 가져오기 실패:", error);
+          alert("회원 이름을 가져오는 데 실패했습니다. 다시 시도해주세요.");
+      }
+    };
 
+      useEffect(() => {
+        fetchUserName(); // 컴포넌트가 마운트될 때 API 호출
+    }, []);
 
    const handleEnter = () => {
     if (!userpk) {
@@ -17,6 +35,7 @@ const WelcomePage = () => {
     }
     navigate(`/visitor/memoryroom/${userpk}`);
   };
+
 
 
   return (

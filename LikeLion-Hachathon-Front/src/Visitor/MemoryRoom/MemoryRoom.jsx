@@ -98,6 +98,39 @@ const MemoryRoom = () => {
         <AnimatePresence mode="wait">
         {currentPhotos.map((itemData, index) => {
             console.log("사진 데이터:", itemData); // 데이터 확인
+
+
+
+            const handleDelete = async () => {
+              const password = prompt("사진을 삭제하려면 비밀번호를 입력하세요:");
+              if (!password) {
+                  alert("비밀번호를 입력해야 합니다.");
+                  return;
+              }
+      
+              try {
+                  const response = await axios.delete(`https://lastlink.p-e.kr/room/${userpk}/photo/${itemData.id}/`, {
+                      headers: {
+                          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+                      },
+                      data: {
+                          password: password, // 입력된 비밀번호를 서버로 전송
+                      },
+                  });
+                  console.log("삭제 성공:", response.data);
+                  alert("사진이 성공적으로 삭제되었습니다.");
+                  fetchPhotoData(); // 삭제 후 데이터 다시 가져오기
+              } catch (error) {
+                  console.error("사진 삭제 실패:", error);
+                  if (error.response && error.response.status === 403) {
+                      alert("비밀번호가 일치하지 않습니다.");
+                  } else {
+                      alert("사진 삭제에 실패했습니다. 다시 시도해주세요.");
+                  }
+              }
+          };
+      
+
             return (
                 <motion.div
                     key={itemData.img_url + index}
@@ -110,6 +143,9 @@ const MemoryRoom = () => {
                     <img src={itemData.img_url} alt={itemData.description} className="photo-image" />
                     <div className="photo-description"><b>{itemData.description}</b></div>
                     <div className="photo-name">{itemData.writer}</div>
+                    <button className="delete-button" onClick={handleDelete}>
+                      삭제
+                  </button>
                 </motion.div>
             );
         })}
