@@ -1,9 +1,33 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect }  from 'react'
+import { useNavigate} from 'react-router-dom'
+import axios from 'axios';
 import './RIPBoard.css'; // CSS 파일을 import
 
+
 const RIPBoard = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [ripList, setRipList] = useState([]);
+
+    const fetchRIPList = async () => {
+        try {
+            const response = await axios.get('https://lastlink.p-e.kr/remembrances/', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+                },
+            });
+            setRipList(response.data); // 서버에서 가져온 데이터를 상태에 저장
+        } catch (error) {
+            console.error('데이터 가져오기 실패:', error);
+            alert('데이터를 가져오는 데 실패했습니다. 다시 시도해주세요.');
+        }
+    };
+
+    // 컴포넌트가 마운트될 때 데이터 가져오기
+    useEffect(() => {
+        fetchRIPList();
+    }, []);
+
+
   const handleMemory = () => {
         navigate("/visitor/memoryroom"); // 로그인 성공 시 메인 페이지로 이동
     }
@@ -18,8 +42,8 @@ const RIPBoard = () => {
         navigate("/visitor/addrip");
     }
 
-    const handleView = () => {
-        navigate("/visitor/ripview");
+    const handleView = (id) => {
+        navigate(`/visitor/ripview/${id}`);
     }
    
 
@@ -40,44 +64,15 @@ const RIPBoard = () => {
             <div className="addWrite">
               <div className='ClickAdd' onClick={handleAdd}>+글쓰러가기</div>
               </div>
-                <div className="RIP-List">
-                 
-        
-                    <div className="hanjool">
-                        <div className="RIP-List-Item" onClick={handleView}>글 01</div>
-                        <div className="name"
-                        >작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item" onClick={handleView} >글 02</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item" onClick={handleView}>글 03</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item"  onClick={handleView}>글 04</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item"  onClick={handleView}>글 05</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item" onClick={handleView}>글 06</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
-
-                    <div className="hanjool">
-                        <div className="RIP-List-Item"  onClick={handleView}>글 07</div>
-                        <div className="name">작성자 이름</div>
-                    </div>
+              <div className="RIP-List">
+                    {ripList.map((rip) => (
+                        <div className="hanjool" key={rip.id}>
+                            <div className="RIP-List-Item" onClick={() => handleView(rip.id)}>
+                                {rip.title}
+                            </div>
+                            <div className="name">{rip.writer}</div>
+                        </div>
+                    ))}
                 </div>
         </div>
       </div>
