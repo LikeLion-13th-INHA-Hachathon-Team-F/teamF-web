@@ -18,7 +18,7 @@ const Modify = () => {
       const toggleTip = (tipId) => {
           setActiveTip(activeTip === tipId ? null : tipId);
       };
-      const [letterData, setLetterData] = useState(null);
+      const [letterData, setLetterData] = useState({ title: '', content: '' });
 
       const handleChange = (e) => {
     const { name, value } = e.target;
@@ -77,6 +77,32 @@ const Modify = () => {
       fetchLetterData();
     }, []);
 
+    const handleDelete = async () => {
+        const accessToken = localStorage.getItem("access_token");
+        if (!accessToken) {
+            alert("로그인이 필요합니다. 로그인 후 다시 시도해주세요.");
+            return;
+        }
+        try {
+          const response = await axios.delete(`https://lastlink.p-e.kr/letters/${id}/`, {
+            headers: {
+              'Content-Type': 'application/json',
+              authorization: `Bearer ${accessToken}`,
+            },
+          });
+          if (response.status === 204) {
+            alert('유서가 성공적으로 삭제되었습니다.');
+            console.log('유서 삭제 성공', response.data);
+            navigate('/mainpage'); // 유서 삭제 후 메인 페이지로 이동
+          }
+
+
+        }catch(error) {
+            console.error('유서 삭제 실패', error);
+            alert('유서 삭제에 실패했습니다. 다시 시도해주세요.');
+      }
+        
+    }
 
     return (
     <div>
@@ -105,7 +131,7 @@ const Modify = () => {
                 
                 <br/>
                 <div className="Buttons-Wrapper">
-                <button className='DeleteButton'>
+                <button className='DeleteButton' onClick={handleDelete}>
                     유서 삭제하기
                 </button>
                 <button className='WriteButton' onClick={handlesave}>
@@ -228,7 +254,7 @@ const Modify = () => {
       </div>
 
     </div>
-  )
-}
+  ) 
 
+}
 export default Modify
