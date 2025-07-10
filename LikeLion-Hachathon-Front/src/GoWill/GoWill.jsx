@@ -24,15 +24,16 @@ const GoWill = () => {
                 return;
             }
     
-            const userPk = localStorage.getItem("user_pk"); // 사용자 pk를 localStorage에서 가져옴
-            if (!userPk) {
-                console.error("사용자 pk가 없습니다.");
-                return;
-            }
+            // const userPk = localStorage.getItem("user_pk"); // 사용자 pk를 localStorage에서 가져옴
+
+            // if (!userPk) {
+            //     console.error("사용자 pk가 없습니다.");
+            //     return;
+            // }
     
     
             try {
-                const response = await axios.get(`https://lastlink.p-e.kr/letters/${userPk}/`, {
+                const response = await axios.get(`https://lastlink.p-e.kr/letters/${userpk}/`, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },

@@ -13,7 +13,7 @@ const WriteWill = () => {
   const [content, setContent] = useState('');
   
    const handleMainPage = () => {
-        navigate("/mainpage"); 
+        navigate(`/usermainpage/${userpk}`); // 메인 페이지로 이동
     }
 
    const toggleTip = (tipId) => {
