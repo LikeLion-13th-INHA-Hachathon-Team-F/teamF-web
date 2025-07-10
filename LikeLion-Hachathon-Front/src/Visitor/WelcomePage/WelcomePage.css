@@ -1,9 +1,18 @@
+@font-face {
+    font-family: 'SF_HambakSnow';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .html, body{
   padding: 0%;
   margin: 0%;
 
 }
+
 .WelcomePage {
+   font-family: 'SF_HambakSnow';
   background: linear-gradient(to bottom, #878787, #000000);
   height: 100vh;
   display: flex;
