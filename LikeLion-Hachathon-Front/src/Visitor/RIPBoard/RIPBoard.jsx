@@ -65,14 +65,18 @@ const RIPBoard = () => {
               <div className='ClickAdd' onClick={handleAdd}>+글쓰러가기</div>
               </div>
               <div className="RIP-List">
-                    {ripList.map((rip) => (
+                {ripList.length > 0? (
+                    ripList.map((rip) => (
                         <div className="hanjool" key={rip.id}>
                             <div className="RIP-List-Item" onClick={() => handleView(rip.id)}>
                                 {rip.title}
                             </div>
                             <div className="name">{rip.writer}</div>
                         </div>
-                    ))}
+                    ))
+                ) : (
+                <p className='ripcomment'>고인에게 전하고 싶은 추모글을 올려주세요</p>
+                )}
                 </div>
         </div>
       </div>
