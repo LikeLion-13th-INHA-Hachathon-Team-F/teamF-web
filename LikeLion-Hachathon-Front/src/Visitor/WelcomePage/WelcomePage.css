@@ -21,7 +21,6 @@
   align-items: center;
   color: rgb(0, 0, 0);
   animation: fadeIn 2s ease-in-out;
-  font-family: 'Noto Serif KR', serif;
   position: relative;
   overflow: hidden;
   background-color: #1a1a1a;
@@ -42,7 +41,7 @@
 }
 
 .WelcomePage-Headline {
-  font-size: 36px;
+  font-size: 45px;
   margin-bottom: 40px;
   color: #ddd;
   text-align: center;

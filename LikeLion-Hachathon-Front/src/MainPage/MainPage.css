@@ -42,6 +42,8 @@
 }
 
 .email{
+    position: absolute;
+    right: 60px;
     cursor: pointer;
     font-size: 25px;
     
