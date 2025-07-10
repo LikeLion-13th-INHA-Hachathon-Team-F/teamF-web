@@ -9,6 +9,8 @@ const MemoryRoom = () => {
   const { userpk } = useParams(); // URL에서 userPk를 가져옴
   const [photoData, setPhotoData] = useState([]); // 서버에서 가져온 사진 데이터를 저장할 상태
 
+
+
   const fetchPhotoData = async () => {
     try {
       console.log("사용자 pk:", userpk);
@@ -74,11 +76,11 @@ const MemoryRoom = () => {
         <HTMLFlipBook  
         width={600} 
         height={700}
-        style={{ margin: '0 auto', backgroundColor: '#efedcf' }}
+        style={{ margin: '0 auto' }}
         
         >
           {photoData.map((itemData, index) => (
-            <div key={index} className="demoPsage">
+            <div key={index} className="demoPage">
               <img src={itemData.img_url} alt={itemData.description} className="photo-image" />
               <div className="photo-description"><b>{itemData.description}</b></div>
               <div className="photo-name">작성자 : {itemData.writer}</div>
@@ -88,6 +90,7 @@ const MemoryRoom = () => {
             </div>
           ))}
         </HTMLFlipBook>
+       
       ) : (
         <p className="no-memory-message">아직 생성된 기억이 없습니다.</p>
       )}

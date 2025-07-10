@@ -43,6 +43,7 @@ const SeeLastMessage = () => {
                         <div className="RIP">
                             <p>{lastMessage.content}</p>
                         </div>
+                        
                     </>
                 ) : (
                     <p>로딩 중...</p>

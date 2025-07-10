@@ -33,6 +33,32 @@ function RIPView() {
         fetchRIPData();
     }, [id]);
 
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm("정말로 이 추모 데이터를 삭제하시겠습니까?");
+        if (!confirmDelete) return;
+
+        const password = prompt("삭제하려면 비밀번호를 입력하세요:");
+        if (!password) {
+            alert("비밀번호를 입력해야 합니다.");
+            return;
+        }
+
+        try {
+            await axios.delete(`https://lastlink.p-e.kr/remembrances/${id}/`, {
+                data: { password },
+            });
+            alert("추모 데이터가 성공적으로 삭제되었습니다.");
+            navigate(-1); // 이전 페이지로 이동
+        } catch (error) {
+            console.error("추모 데이터 삭제 실패:", error);
+            if (error.response && error.response.status === 403) {
+                alert("비밀번호가 일치하지 않습니다.");
+            } else {
+                alert("추모 데이터 삭제에 실패했습니다. 다시 시도해주세요.");
+            }
+        }
+    };
+
     return (
         <div>
             <div className="AddRIP-Top-bar">
@@ -49,7 +75,11 @@ function RIPView() {
                             </div>
                             <div className="RIP">
                                 <p>{ripData.content}</p>
+    
                             </div>
+                            <button className="delete-button" onClick={handleDelete}>
+                            삭제
+                        </button>
                         </>
                     ) : (
                         <p>로딩 중...</p>

@@ -91,7 +91,7 @@
 .photo-image {
   
   width: 500px;
-  height: 50%;
+  height: 500px;
   margin-left: 50px;
   margin-top: 30px ;
   aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
@@ -153,7 +153,6 @@
 }
 
 
-
 .no-memory-message{
   display: flex;
   flex-direction: column;
@@ -182,15 +181,23 @@
 
 
 .demoPage{
-  background-color: #efedcf;
+ /* background-image: url('/lett.avif');  배경 이미지 설정 */
+  background-color: white;
+  background-size: cover; /* 배경 이미지가 페이지를 완전히 덮도록 설정 */
+  background-position: center; /* 배경 이미지 가운데 정렬 */
+  background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #000000;
-  border-radius: 10px;
+  justify-content: center; /* 콘텐츠를 가운데 정렬 */
+  border: 1px solid #000000; /* 페이지 테두리 */
+  border-radius: 10px; /* 페이지 모서리 둥글게 */
 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 6); /* 부드러운 그림자 */
 }
 
 .VisitorBody{
   margin-top: 80px;
+  
+  padding-bottom: 20px;
 }
