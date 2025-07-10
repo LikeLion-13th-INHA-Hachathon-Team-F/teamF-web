@@ -152,13 +152,12 @@
 }
 
 .footer {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     text-align: center;
     padding: 20px 0;
-   
     bottom: 0;
     width: 100%;
-    border-top: 1px solid #e9ecef;
+
 }
 
 .footer-content {
@@ -183,7 +182,7 @@
 .mainheadline{
     padding-left: 40px;
     padding-top: 100px;
-    background-color: black;
+    background-color: rgb(42, 42, 42);
     height: 700px;
     color: white;
     font-family: 'BMHANNAAir';

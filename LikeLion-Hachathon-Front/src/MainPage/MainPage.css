@@ -39,6 +39,7 @@
     font-size: 30px;
     font-weight: 700;
     color: #6B8C5F;
+    
 }
 
 .email{
@@ -57,6 +58,8 @@
     height: 40px;
     margin-top: 100px;
     margin-left: 200px;
+    border: none;
+    border-radius: 7px;
 }
 .Write-will-button:hover{
      transform: scale(1.04);
@@ -101,12 +104,13 @@
 .modify-btn{
     background-color: #527344a4;
     color: white;
-    border: 1px solid black;
+    border: none;
     font-size: 15px;
     width: 80px;
     height: 30px;
     margin-right: 20px;
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .modify-btn:hover{
@@ -149,13 +153,12 @@
 }
 
 .footer {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     text-align: center;
     padding: 20px 0;
-   
     bottom: 0;
     width: 100%;
-    border-top: 1px solid #e9ecef;
+
 }
 
 .footer-content {
@@ -310,6 +313,7 @@
     font-size: 20px;
     font-weight: 400;
  font-family: 'BMHANNAAir';
+
 }
 .wrapandwill{
     display: flex;
@@ -333,15 +337,27 @@
 
 .gologin{
 
+
+
+
     margin-right: 30px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
 
+}
+
+.gologin:hover{
+    color: #6B8C5F;
+    text-decoration: underline;
 }
 
 .gosign{
     margin-right: 30px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
+}
 
+.gosign:hover{
+    color: #6B8C5F;
+    text-decoration: underline;
 }

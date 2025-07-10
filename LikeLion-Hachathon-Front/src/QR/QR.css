@@ -38,7 +38,7 @@
 .URL-CopyButton {
     background-color: #cbbf90;
     color: white;
-    border: 1px solid black;
+    border: none;
 
     padding: 10px 20px;
     cursor: pointer;

@@ -23,13 +23,14 @@
   border-bottom: 2px solid black;
 }
 .MakeLink{
-    border: 1px solid black;
+    border: 0.5px solid black;
+    border-radius: 3px;
     color:black;
     padding: 10px 10px;
 }
 .MakeLink:hover{
-    color:#4a734f;
-    text-decoration: underline;
+    background-color:#f0f0f0;
+
     cursor: pointer;
 }
 

@@ -80,6 +80,7 @@
 }
 .WriteWill-WritingTips{
 
+    
     background-color: rgb(244, 243, 240);
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -95,6 +96,8 @@
     
 }
 .WritingTip{
+
+    border-radius: 10px;
     
     background-color: #F7F7F7;
     width: 65%;
