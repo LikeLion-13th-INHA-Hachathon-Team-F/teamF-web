@@ -10,10 +10,15 @@ function Modi() {
     const {id} = useParams(); // URL에서 유서 ID를 가져옴
       const navigate = useNavigate();
       const [activeTip, setActiveTip] = useState(null); 
-    
+      const [memberData, setMemberData] = useState(null); // 멤버 데이터 상태 관리
+
       const handleMainPage = () => {
-            navigate("/mainpage"); // 유서 작성 페이지로 이동
-      }
+          if (memberData && memberData.id) {
+              navigate(`/usermainpage/${memberData.id}`); // 멤버 ID를 포함하여 메인 페이지로 이동
+          } else {
+              console.error("멤버 ID를 가져올 수 없습니다.");
+          }
+      };
 
       const toggleTip = (tipId) => {
           setActiveTip(activeTip === tipId ? null : tipId);
@@ -43,9 +48,10 @@ function Modi() {
         });
         
         if (response.status === 200) {
+            const userpk = response.data.member_id;
             alert('유서가 성공적으로 수정되었습니다.');
             console.log('유서 수정 성공', response.data);
-            navigate('/mainpage');
+            navigate(`/gowill/${userpk}`); // 수정 후 유서 페이지로 이동
         }
     } catch (error) {
         console.error('유서 수정 실패', error);
@@ -93,7 +99,7 @@ function Modi() {
           if (response.status === 204) {
             alert('유서가 성공적으로 삭제되었습니다.');
             console.log('유서 삭제 성공', response.data);
-            navigate('/mainpage'); // 유서 삭제 후 메인 페이지로 이동
+            navigate('/usermainpage'); // 유서 삭제 후 메인 페이지로 이동
           }
 
 

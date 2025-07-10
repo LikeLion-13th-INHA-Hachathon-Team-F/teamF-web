@@ -1,12 +1,13 @@
 import React from 'react'
 import './WriteWill.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import MainPage from '../MainPage/MainPage'
 import { useState } from 'react';
 import axios from 'axios'; 
 
 const WriteWill = () => {
   const navigate = useNavigate();
+  const { userpk } = useParams(); // URL에서 id를 추출
   const [activeTip, setActiveTip] = useState(null); 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -43,7 +44,7 @@ const WriteWill = () => {
         console.log('유서 작성 성공',response.data);
         setTitle('');
         setContent('');
-        navigate('/gowill');
+        navigate(`/gowill/${userpk}`);
       }
     } catch(error) {
       console.error('유서 작성 실패', error);

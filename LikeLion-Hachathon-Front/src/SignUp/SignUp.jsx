@@ -59,7 +59,7 @@ function SignUp() {
 
 
         // 페이지 이동
-        navigate("/");
+        navigate("/login");
 
     } catch (error) {
     console.error("회원가입 중 오류 발생:", error);

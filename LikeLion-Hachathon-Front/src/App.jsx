@@ -16,12 +16,12 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/usermainpage/:id" element={<UserMainPage />} />
-        <Route path="/writewill" element={<WriteWill />} />
+        <Route path="/usermainpage/:userpk" element={<UserMainPage />} />
+        <Route path="/writewill/:userpk" element={<WriteWill />} />
         <Route path="/modi/:id" element={<Modi />} />
         {/* Visitor Routes */}
          <Route path="/visitor/*" element={<VisitorRoutes />} />
-         <Route path="/gowill" element={<GoWill />} />
+         <Route path="/gowill/:userpk" element={<GoWill />} />
 
       </Routes>
     </Router>

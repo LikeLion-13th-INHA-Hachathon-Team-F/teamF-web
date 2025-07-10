@@ -75,26 +75,6 @@ function MainPage() {
                   <div className="wrapandwill">
                   <div className="gologin" onClick={handlegologin}>로그인  </div>
                   <div className="gosign" onClick={handlegosign}>회원가입</div>
-                  <div 
-                    className="email-wrapper"
-                    onMouseEnter={toggleEmailMenu}
-                    onMouseLeave={() => setEmailMenuVisible(false)}
-                  >
-                    <div className="email">☰</div>
-
-                    {isEmailMenuVisible && (
-                      <div className="email-menu">
-                        <ul>
-                          <div className="email-menu-name">
-                            <li>{userData.name} 님</li>
-                          </div>
-                          <li onClick={() => setShowQR(true)}>link connection</li>
-                          {showQR && <QR onclose={() => setShowQR(false)} />}
-                          <li onClick={handleLogout}>logOut</li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
                   </div>
                 </div>
 

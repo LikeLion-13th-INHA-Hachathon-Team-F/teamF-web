@@ -1,14 +1,15 @@
 import React from 'react'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams} from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
 const GoWill = () => {
     const [letterData, setLetterData] = useState(null);
+    const {userpk} = useParams(); // URL에서 userpk를 추출
     const navigate = useNavigate()
     const handleWriteWill = () => {
-        navigate("/writewill"); // 유서 작성 페이지로 이동
+        navigate(`/writewill/${userpk}`); // 유서 작성 페이지로 이동
     }
 
     const handlemodify = (letterId) => {
