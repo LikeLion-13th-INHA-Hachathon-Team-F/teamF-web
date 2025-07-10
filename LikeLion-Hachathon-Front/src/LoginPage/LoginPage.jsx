@@ -54,6 +54,7 @@ function LoginPage() {
     }
 
     return(
+        <div className="LoginFullPage">
         <div className="LoginPage-Page">
             <div className="LoginPage-Headline">
                 lastLink
@@ -92,6 +93,7 @@ function LoginPage() {
                     회원가입 하러가기
                 </button>
             </div>
+        </div>
         </div>
     ) 
 }

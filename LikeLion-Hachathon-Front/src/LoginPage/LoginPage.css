@@ -4,7 +4,10 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.LoginFullPage{
+  width: 100%;
+  height: 900px;
+}
 .LoginPage-Page{
     position: absolute;
     top:150px;
@@ -18,6 +21,8 @@
     border: 1px solid #DCDCDC;
     border-radius: 10px;
     font-family: 'BMHANNAAir';
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ✨ 그림자 추가 */
+    
 }
 .LoginPage-Headline{
     margin-top: 70px;
@@ -27,6 +32,8 @@
     justify-items: center;
     text-align: center;
     color: #6B8E23;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
 }
 .LoginPage-IdInsert,
 .LoginPage-PasswordInsert {
@@ -34,7 +41,6 @@
     border-radius: 12px;
     padding: 12px 16px;
     margin: 12px 60px;
-    background-color: #f9f9f9;
     transition: border 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #ddd;
    

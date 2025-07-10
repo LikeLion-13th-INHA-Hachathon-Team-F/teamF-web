@@ -226,7 +226,7 @@
   gap: 30px; /* 텍스트와 이미지 사이 간격 */
   max-width: 1100px; /* 최대 넓이 제한 */
   margin: 0 auto; /* 중앙 정렬 (선택사항) */
-  padding: 20px 20px;
+  padding: 20px 80px;
   margin-left: auto;          /* ✅ 오른쪽 정렬 핵심 */
   margin-right: 0; 
 }
@@ -237,7 +237,7 @@
   gap: 30px; /* 텍스트와 이미지 사이 간격 */
   max-width: 1100px; /* 최대 넓이 제한 */
   margin: 0 auto; /* 중앙 정렬 (선택사항) */
-  padding: 0px 20px;
+  padding: 0px 80px;
   margin-right: auto;          /* ✅ 오른쪽 정렬 핵심 */
   margin-left: 0; 
 }
