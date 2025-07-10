@@ -43,7 +43,7 @@ const LastMessage = () => {
       <div className='full'>
         <div className="Top-bar">
             <div className="Logo">lastLink</div>
-            <div className='MakeLink' onClick={handleLogin}>나의 last link 만들기</div>
+            <div className='MakeLink' onClick={handleLogin}>나의 lastLink 만들기</div>
         </div>
         <div className='VisitorBody'>
             <div className='VisitorIndex'>

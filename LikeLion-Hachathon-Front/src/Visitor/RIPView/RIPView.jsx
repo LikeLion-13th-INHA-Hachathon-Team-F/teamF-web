@@ -77,9 +77,11 @@ function RIPView() {
                                 <p>{ripData.content}</p>
     
                             </div>
-                            <button className="delete-button" onClick={handleDelete}>
+                            <div className="dd">
+                            <button className="ddelete-button" onClick={handleDelete}>
                             삭제
-                        </button>
+                            </button>
+                            </div>
                         </>
                     ) : (
                         <p>로딩 중...</p>

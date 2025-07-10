@@ -1,11 +1,11 @@
 .RIPP-Title{
-
+    font-size: 20px;
     background-color: #5273441e;
     padding: 20px 80px;
     border: 1px solid #ccc; /* 박스 테두리 */
     border-radius: 10px 10px 0 0; 
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 400px;
+    margin-right: 400px;
     margin-top: 100px;
     margin-bottom: 0px;
     border-bottom: none; /* 아래쪽 테두리 제거 */
@@ -14,6 +14,11 @@
     justify-content: space-between; 
  
     
+    
+}
+.backButton{
+    color: black;
+    font-size: 200px;
 }
 .title,.name{
     display: flex; /* Flexbox 활성화 */
@@ -25,12 +30,41 @@
 }
 
 .RIP {
-
+    
     margin-top: 20px;
     padding: 20px 80px;
     border: 1px solid #ccc; /* 박스 테두리 */
     border-radius: 0 0 10px 10px; /* 모서리 둥글게 */
     background-color: #ffffff; /* 박스 배경색 */
-    margin: 0px 200px;
-    height: 500px;
+    margin: 0px 400px;
+    height: auto;
+}
+
+.RIP p{
+    font-size: 20px;
+       line-height: 2;         /* 줄 간 간격 */
+    margin-bottom: 18px;    /* 문단 간 간격 */
+
+}
+.RIPView-Body{
+    height: 1000px;
+}
+.ddelete-button {
+  /* 부모 요소의 오른쪽 상단에 위치 */
+  bottom: 10px; /* 하단에서 10px 떨어짐 */
+  right: 10px; 
+  margin-top: 30px;
+  margin-left: 400px;
+  padding: 5px 10px;
+  
+  background-color: #c6c6c6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dd{
+    width: 100%;
 }

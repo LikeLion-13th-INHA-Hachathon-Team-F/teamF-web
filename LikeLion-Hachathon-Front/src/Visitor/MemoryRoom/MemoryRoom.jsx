@@ -62,7 +62,7 @@ const MemoryRoom = () => {
       {/* 상단 네비게이션 */}
       <div className="Top-bar">
         <div className="Logo">lastLink</div>
-        <div className="MakeLink" onClick={() => navigate("/")}>나의 last link 만들기</div>
+        <div className="MakeLink" onClick={() => navigate("/")}>나의 lastLink 만들기</div>
       </div>
 
       {/* 메뉴 */}
