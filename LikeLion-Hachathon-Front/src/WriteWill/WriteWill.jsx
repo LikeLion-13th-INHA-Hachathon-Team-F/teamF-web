@@ -43,7 +43,7 @@ const WriteWill = () => {
         console.log('유서 작성 성공',response.data);
         setTitle('');
         setContent('');
-        navigate('/mainpage');
+        navigate('/gowill');
       }
     } catch(error) {
       console.error('유서 작성 실패', error);
@@ -52,7 +52,7 @@ const WriteWill = () => {
   };
 
   return (
-    <div>
+    <div className='WriteWillFullPage'>
       <div className="WriteWill-Top-bar">
         <div className="WriteWill-Logo"  onClick={handleMainPage}>lastLink</div>
       </div>
