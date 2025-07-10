@@ -11,7 +11,12 @@
     font-style: normal;
 }
 
+.hi{
 
+
+    color: #000000;
+    margin-left: 20px;
+}
 .Top-bar {
     position: fixed;
     top: 0;
@@ -42,7 +47,6 @@
 }
 
 .email{
-    position: absolute;
     right: 60px;
     cursor: pointer;
     font-size: 25px;
@@ -216,9 +220,7 @@
 
 .secondheadline{
     background-color: #fdfdfd;
-    height: 1000px;
-    border-bottom: 1px solid black;
-   
+    height: 700px;
 }
 
 .secondheadlinecontent {
@@ -305,7 +307,7 @@
   align-items: center;
   height: 100vh; /* 화면 전체 높이 */
 }
-
+.golist,
 .gotowill{
     cursor: pointer;
     padding-top: 7px;

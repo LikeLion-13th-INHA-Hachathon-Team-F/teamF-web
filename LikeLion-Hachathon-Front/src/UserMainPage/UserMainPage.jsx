@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import "./UserMainPage.css";
 import QR from "../QR/QR";
 import axios from "axios";
@@ -10,13 +10,17 @@ import WriteWill from "../WriteWill/WriteWill";
 function UserMainPage() {
     const navigate = useNavigate();
     const [isEmailMenuVisible, setEmailMenuVisible] = useState(false);
+    const { userpk } = useParams(); // URL에서 id를 추출
+
+
+
     const gowill = () => {
-      navigate("/gowill");
+      navigate(`/gowill/${userpk }`); // 유서 보러가기 페이지로 이동
     }
 
 
     const handleWriteWill = () => {
-        navigate("/writewill"); // 유서 작성 페이지로 이동
+        navigate(`/writewill/${userpk }`); // 유서 작성 페이지로 이동
     }
 
     const handlemodify = (letterId) => {
@@ -26,6 +30,7 @@ function UserMainPage() {
     const toggleEmailMenu = () => {
         setEmailMenuVisible(!isEmailMenuVisible); // 토글 상태 변경
     };
+    
     const [showQR, setShowQR] = useState(false);
 
     const handleLogout = () => {
@@ -87,14 +92,20 @@ function UserMainPage() {
             <div className="Top-bar">
       <div className="Logo">lastLink</div>
 
+
+      <div className="hi" >{userData.name}님 반갑습니다.</div>
+      
       {/* 메뉴 전체 감싸는 div에 onMouseLeave */}
       {/*유서 작성과 작성한 글들 보임 */}
       <div className="wrapandwill">
+
+        <div className="golist" onClick={gowill}>유서 보러가기</div>
       <div className="gotowill" onClick={handleWriteWill}>유서 작성하기</div>
+      
       <div 
         className="email-wrapper"
-        onMouseEnter={toggleEmailMenu}
-        onMouseLeave={() => setEmailMenuVisible(false)}
+        onClick={toggleEmailMenu}
+      
       >
         <div className="email">☰</div>
 
@@ -104,7 +115,11 @@ function UserMainPage() {
               <div className="email-menu-name">
                 <li>{userData.name} 님</li>
               </div>
-              <li onClick={() => setShowQR(true)}>link connection</li>
+              <li 
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowQR(true)
+              }}>link connection</li>
               {showQR && <QR onclose={() => setShowQR(false)} />}
               <li onClick={handleLogout}>logOut</li>
             </ul>
@@ -157,13 +172,6 @@ function UserMainPage() {
   </div>
    </div>
 
-
-   
-
-
-    <button className="startbutton" onClick={handleWriteWill}>
-      유서 작성하러 가기
-    </button>
     
 </motion.div>
 
