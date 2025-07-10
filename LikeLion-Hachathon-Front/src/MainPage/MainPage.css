@@ -182,7 +182,7 @@
     padding-left: 40px;
     padding-top: 100px;
     background-color: black;
-    height: 800px;
+    height: 700px;
     color: white;
     font-family: 'BMHANNAAir';
     border-bottom: 1px solid black;
@@ -226,7 +226,7 @@
   gap: 30px; /* 텍스트와 이미지 사이 간격 */
   max-width: 1100px; /* 최대 넓이 제한 */
   margin: 0 auto; /* 중앙 정렬 (선택사항) */
-  padding: 20px 80px;
+  padding: 20px 20px;
   margin-left: auto;          /* ✅ 오른쪽 정렬 핵심 */
   margin-right: 0; 
 }
@@ -237,7 +237,7 @@
   gap: 30px; /* 텍스트와 이미지 사이 간격 */
   max-width: 1100px; /* 최대 넓이 제한 */
   margin: 0 auto; /* 중앙 정렬 (선택사항) */
-  padding: 0px 80px;
+  padding: 0px 20px;
   margin-right: auto;          /* ✅ 오른쪽 정렬 핵심 */
   margin-left: 0; 
 }
