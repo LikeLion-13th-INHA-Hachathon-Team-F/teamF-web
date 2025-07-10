@@ -48,7 +48,7 @@ const RIPBoard = () => {
    
 
   return (
-    <div>
+    <div className='full'>
       <div className="Top-bar">
             <div className="Logo">lastLink</div>
             <div className='MakeLink' onClick={handleLogin}>나의 last link 만들기</div>

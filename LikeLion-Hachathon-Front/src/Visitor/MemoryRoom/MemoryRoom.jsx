@@ -5,6 +5,9 @@ import './MemoryRoom.css';
 import HTMLFlipBook from 'react-pageflip';
 
 const MemoryRoom = () => {
+  
+
+
   const navigate = useNavigate();
   const { userpk } = useParams(); // URL에서 userPk를 가져옴
   const [photoData, setPhotoData] = useState([]); // 서버에서 가져온 사진 데이터를 저장할 상태
@@ -55,7 +58,7 @@ const MemoryRoom = () => {
   };
 
   return (
-    <div>
+    <div className='full'>
       {/* 상단 네비게이션 */}
       <div className="Top-bar">
         <div className="Logo">lastLink</div>
@@ -69,8 +72,6 @@ const MemoryRoom = () => {
           <p onClick={() => navigate(`/visitor/ripboard/${userpk}`)}>추모 게시판</p>|
           <p onClick={() => navigate(`/visitor/lastmessage/${userpk}`)}>마지막 메시지</p>
         </div>
-     
-
 
       {photoData.length > 0 ? (
         <HTMLFlipBook  

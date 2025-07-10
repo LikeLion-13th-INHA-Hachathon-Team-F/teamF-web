@@ -28,7 +28,7 @@ const SeeLastMessage = () => {
     }, [id]);
     
   return (
-    <div>
+    <div className='full'>
       <div className="AddMemory-Top-bar">
             <div className='backButton' onClick={() => navigate(-1)}>←</div>
             <div className="Logo">lastLink</div>

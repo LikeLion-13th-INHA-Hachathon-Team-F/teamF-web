@@ -60,7 +60,7 @@ function RIPView() {
     };
 
     return (
-        <div>
+        <div className="full">
             <div className="AddRIP-Top-bar">
                     <div className='backButton' onClick={() => navigate(-1)}>←</div>
                     <div className="AddRIP-Logo"  >lastLink</div>
