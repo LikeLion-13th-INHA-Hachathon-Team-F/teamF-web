@@ -44,7 +44,7 @@ const WelcomePage = () => {
             <div className="Welcome-Logo">lastLink</div>
         </div>
       <div className='WelcomePage-Headline'>
-      <span style={{ fontWeight: "bold" }}>{username || "故인물"}</span>의 추모공간에 오신 것을 환영합니다.
+      <span style={{ fontWeight: "bold" , color: "#ddd" }}>故{username || "故인물"}</span>님의 삶과 추억을 기리는 공간에 함께해 주세요.
         </div>
       <button className="EnterButton" onClick={handleEnter} >
         입장하기

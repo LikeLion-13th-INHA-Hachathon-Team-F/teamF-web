@@ -75,16 +75,9 @@ const MemoryRoom = () => {
         </div>
       </div>
 
-      <button className='VisitorButton' onClick={() => navigate(`/visitor/addmemory/${userpk}`)}>
-        기억 추가하기
-      </button>
 
-      {/* 사진첩 - 페이징 */}
-      <div className="gallery-controls">
-        <button onClick={handlePrev} disabled={currentPage === 0}>{'<'}</button>
-        <span>{currentPage + 1} / {totalPages}</span>
-        <button onClick={handleNext} disabled={currentPage === totalPages - 1}>{'>'}</button>
-      </div>
+
+      
 
       {/* 사진 리스트 */}
       {photoData.length > 0 ? (
@@ -151,6 +144,22 @@ const MemoryRoom = () => {
       ):(
         <p className="no-memory-message">아직 생성된 기억이 없습니다.</p>
       )} 
+
+
+
+      
+      {/* 사진첩 - 페이징 */}
+      <div className="gallery-controls">
+        <button onClick={handlePrev} disabled={currentPage === 0}>{'<'}</button>
+        <span>{currentPage + 1} / {totalPages}</span>
+        <button onClick={handleNext} disabled={currentPage === totalPages - 1}>{'>'}</button>
+      </div>
+      <div className='bottom'>
+        <button className='VisitorButton' onClick={() => navigate(`/visitor/addmemory/${userpk}`)}>
+          기억 추가하기
+        </button>
+      </div>
+      
     </div>
   );
 };
