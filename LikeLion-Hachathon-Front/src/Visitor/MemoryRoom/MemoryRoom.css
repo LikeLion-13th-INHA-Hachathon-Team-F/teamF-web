@@ -90,8 +90,10 @@
 
 .photo-image {
   
-  width: 100%;
+  width: 500px;
   height: 50%;
+  margin-left: 50px;
+  margin-top: 30px ;
   aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
   object-fit: cover;
   background-color: #eee;
@@ -174,19 +176,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-
   border-radius: 8px;
 
 }
 
 
 .demoPage{
-  background-color: rgb(239, 237, 207);
+  background-color: #efedcf;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #000000;
   border-radius: 10px;
 
+}
+
+.VisitorBody{
+  margin-top: 80px;
 }
