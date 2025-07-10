@@ -109,7 +109,7 @@ function MainPage() {
       <div className="gotowill" onClick={handleWriteWill}>유서 작성하기</div>
       <div 
         className="email-wrapper"
-        onClick={toggleEmailMenu}
+        onMouseEnter={toggleEmailMenu}
         onMouseLeave={() => setEmailMenuVisible(false)}
       >
         <div className="email">☰</div>
