@@ -67,7 +67,7 @@ const MemoryRoom = () => {
           <p onClick={() => navigate(`/visitor/ripboard/${userpk}`)}>추모 게시판</p>|
           <p onClick={() => navigate(`/visitor/lastmessage/${userpk}`)}>마지막 메시지</p>
         </div>
-      </div>
+     
 
 
       {photoData.length > 0 ? (
@@ -98,6 +98,7 @@ const MemoryRoom = () => {
           기억 추가하기
         </button>
       </div>
+    </div>
     </div>
   );
 };
