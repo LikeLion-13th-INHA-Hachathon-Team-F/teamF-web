@@ -6,6 +6,7 @@
   justify-content: flex-end;
   padding: 0;
   margin: 0;
+  margin-top: 40px;
   margin-bottom: 40px;
   margin-right: 180px;
 }
@@ -36,13 +37,12 @@
     color: white;
 }
 .gallery {
-  display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4열 */
   grid-template-rows: repeat(2, auto);   /* 2행 (자동 높이) */
   gap: 10px 10px; /* 행과 열 사이의 간격 */
   padding: 20px;
   padding-left: 100px;
-  padding-right: 100px;
+  padding-right: 10px;
 }
 
 .photo-card {
@@ -50,7 +50,7 @@
   flex-direction: column;
   align-items: center;
   justify-self: center;
-  background-color: #f9f9f9;
+  background-color: #352424;
   border: 1px solid #ddd;
   padding: 10px;
   overflow: hidden;
@@ -85,15 +85,17 @@
 }
 
 .delete-button:hover {
-  background-color: #ff0000;
+  background-color: #737373;
 }
+
 .photo-image {
-  width: 250px;
-  height: 250px;
+  
+  width: 100%;
+  height: 50%;
   aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
   object-fit: cover;
   background-color: #eee;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   object-fit: cover;
@@ -103,12 +105,13 @@
 .photo-description {
   margin-top: 10px;
   font-weight: 400;
+  font-size: 30px;
   align-self: baseline;
   padding-left: 30px;
 }
 
 .photo-name {
-  font-size: 0.9rem;
+  font-size: 20px;
   color: #666;
   align-self: baseline;
   padding-left: 30px;
@@ -158,4 +161,32 @@
   font-size: 24px;
   color: #666;
   text-align: center;
+}
+
+.flipbook{
+  width: 100%;
+  height: auto;
+}
+
+.gallBody{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+
+  border-radius: 8px;
+
+}
+
+
+.demoPage{
+  background-color: rgb(239, 237, 207);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 10px;
+
 }
