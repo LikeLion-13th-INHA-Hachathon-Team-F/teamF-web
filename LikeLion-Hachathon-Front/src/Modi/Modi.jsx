@@ -64,10 +64,10 @@ function Modi() {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
-            if (response.status === 204) {
+            if (response.status === 200) {
                 alert('유서가 성공적으로 삭제되었습니다.');
                 console.log('유서 삭제 성공', response.data);
-                navigate(`/usermainpage/${memberId}`); // 유서 삭제 후 메인 페이지로 이동
+                navigate(`/gowill/${memberId}`); // 유서 삭제 후 메인 페이지로 이동
             }
         } catch (error) {
             console.error('유서 삭제 실패', error);
