@@ -109,9 +109,9 @@ function MainPage() {
     <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image" />
   </div>
   <div className="secondheadlinecontent2">
-    <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image2" />
+    <img src="/img.jpg" alt="기억을 잇는 이미지" className="secondheadline-image2" />
     <div className="writingbox2">
-      <div className="box2headlink">끝이 아닌 기억의 시작, 이곳에 머무릅니다.</div>
+      <div className="box2headlink">"끝이 아닌 기억의 시작, 이곳에 머무릅니다."</div>
       <div className="box2content">
       마지막 인사와 추억, 그리고 사랑을 담는 디지털 공간.<br />
       고인의 유서와 함께, 기억은 오늘도 살아 있습니다.
