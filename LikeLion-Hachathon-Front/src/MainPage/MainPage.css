@@ -245,7 +245,7 @@
 }
 .writingbox1,.writingbox2 {
     margin-right: 30px;
-    margin-left: auto;          /* ✅ 오른쪽 정렬 핵심 */
+       /* ✅ 오른쪽 정렬 핵심 */
   margin-right: 0; 
   max-width: 550px;
   /* 텍스트는 이미지 왼쪽에 딱 붙도록 flex 내부에서 자연스럽게 위치 */
