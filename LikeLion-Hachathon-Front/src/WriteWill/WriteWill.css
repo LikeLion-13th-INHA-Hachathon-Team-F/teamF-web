@@ -44,6 +44,7 @@
     padding: 15px 250px;
     margin: 1px 10px;
     transition: border 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'BMHANNAAir';
 }
 .WriteWill-Write-Textarea{
     border: 1px solid #ddd;
@@ -55,15 +56,15 @@
 }
 .WriteWill-Write-Textarea{
     padding-bottom: 300px;
+    font-family: 'BMHANNAAir';
 }
 .WriteButton{  
     width: 17%;
     margin-right: 10px;
     padding: 10px 20px;
     height: 40px;
-    background-color: #4F7942; 
-    border-radius: 10px;
-    border: 1px solid #C0C0C0;
+    background-color: #527344a4;
+    border: 1px solid black;
     outline: none;
     font-size: 15px;
     font-weight: 400;
@@ -75,14 +76,11 @@
 }
 .WriteWill-p{
     padding-left: 17px;
+    font-family: 'BMHANNAAir';
 }
 .WriteWill-WritingTips{
 
-
-
     background-color: rgb(244, 243, 240);
-
-
     border: 1px solid #ddd;
     border-radius: 12px;
     display: flex;
@@ -99,7 +97,6 @@
 .WritingTip{
     
     background-color: #F7F7F7;
-    border-radius: 10px;
     width: 65%;
     padding: 5px 20px;
     margin:8px 0;

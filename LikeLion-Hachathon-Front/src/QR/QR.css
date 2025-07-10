@@ -38,8 +38,8 @@
 .URL-CopyButton {
     background-color: #cbbf90;
     color: white;
-    border: none;
-    border-radius: 8px;
+    border: 1px solid black;
+
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;

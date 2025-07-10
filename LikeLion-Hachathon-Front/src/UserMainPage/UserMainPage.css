@@ -12,8 +12,6 @@
 }
 
 .hi{
-
-
     color: #000000;
     margin-left: 20px;
 }
@@ -54,10 +52,9 @@
 }
 
 .Write-will-button{
-    background-color: #6B8C5F;
+    background-color: #527344a4;
     color: white;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid black;
     font-size: 14px;
     width: 150px;
     height: 40px;
@@ -105,10 +102,9 @@
 
 
 .modify-btn{
-    background-color: #6B8C5F;
+    background-color: #527344a4;
     color: white;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid black;
     font-size: 15px;
     width: 80px;
     height: 30px;
@@ -312,7 +308,7 @@
     cursor: pointer;
     padding-top: 7px;
     margin-right: 30px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
  font-family: 'BMHANNAAir';
 }
@@ -326,7 +322,11 @@
     padding-left: 100px;
     padding-top: 30px;
 }
+.hi{
+    font-size: 20px;
+}
 
-
-
+.golist:hover,.gotowill:hover{
+transform: scale(1.08);
+}
 

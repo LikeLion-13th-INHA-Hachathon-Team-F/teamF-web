@@ -52,8 +52,6 @@
 .Write-will-button{
     background-color: #6B8C5F;
     color: white;
-    border: none;
-    border-radius: 10px;
     font-size: 14px;
     width: 150px;
     height: 40px;
@@ -101,10 +99,9 @@
 
 
 .modify-btn{
-    background-color: #6B8C5F;
+    background-color: #527344a4;
     color: white;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid black;
     font-size: 15px;
     width: 80px;
     height: 30px;
