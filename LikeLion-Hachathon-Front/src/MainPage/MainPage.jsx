@@ -90,7 +90,7 @@ function MainPage() {
     className="Body">
 
     <div className="mainheadline">
-       <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
+       <div className="mainheadlinecontent">lastLink,<br/> 잊히지 않는 마지막 연결</div>
        <div className="mainheadlinecontent1">유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
       고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.</div>
        <img src="/hihi.png" alt="기억을 잇는 이미지" className="mainheadline-image" />

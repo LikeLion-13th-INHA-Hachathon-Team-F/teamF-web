@@ -16,6 +16,10 @@ const GoWill = () => {
     navigate(`/modi/${letterId}`); // 유서 ID를 URL에 포함하여 수정 페이지로 이동
     };
 
+    const usermainpage = () => {
+        navigate(`/usermainpage/${userpk}`); // 유서 작성 페이지로 이동
+    }
+
     useEffect(() => {
         const fetchletterData = async () => {
             const accessToken = localStorage.getItem("access_token");
@@ -51,7 +55,7 @@ const GoWill = () => {
   return (
     <div>
     <div className="Top-bar">
-      <div className="Logo">lastLink</div>
+      <div className="Logo" onClick={usermainpage}>lastLink</div>
     </div>
       <button 
     className="Write-will-button"
