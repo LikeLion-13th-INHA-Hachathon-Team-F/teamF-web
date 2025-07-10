@@ -4,6 +4,7 @@ import "./MainPage.css";
 import QR from "../QR/QR";
 import axios from "axios";
 import { useEffect } from "react";
+import { motion } from 'framer-motion';
 import WriteWill from "../WriteWill/WriteWill";
 
 function MainPage() {
@@ -113,7 +114,16 @@ function MainPage() {
       </div>
     </div>
 
-    <div className="Body">
+    <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+                ease: "easeInOut",
+                duration: 2,
+                y: { duration: 1 },
+            }}
+    className="Body">
 
     <div className="mainheadline">
        <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
@@ -155,7 +165,7 @@ function MainPage() {
       유서 작성하러 가기
     </button>
     
-</div>
+</motion.div>
 
 
             <div className="footer">
