@@ -4,6 +4,7 @@ import "./MainPage.css";
 import QR from "../QR/QR";
 import axios from "axios";
 import { useEffect } from "react";
+import WriteWill from "../WriteWill/WriteWill";
 
 function MainPage() {
     const navigate = useNavigate();
@@ -11,25 +12,6 @@ function MainPage() {
     const gowill = () => {
       navigate("/gowill");
     }
-    const smoothScrollDown = (distance = 2000, duration = 1000) => {
-  const start = window.scrollY;
-  const end = start + distance;
-  const startTime = performance.now();
-
-  const animateScroll = (currentTime) => {
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / duration, 1); // 0 ~ 1
-    const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-
-    window.scrollTo(0, start + (end - start) * ease);
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    }
-  };
-
-  requestAnimationFrame(animateScroll);
-};
 
 
     const handleWriteWill = () => {
@@ -54,8 +36,9 @@ function MainPage() {
 
     useEffect(() => {
     const handleScroll = () => {
-       if (!topBar) return;
       const topBar = document.querySelector(".Top-bar");
+       if (!topBar) return;
+      
       if (window.scrollY > 50) {
         topBar.classList.add("scrolled");
       } else {
@@ -99,7 +82,7 @@ function MainPage() {
         }
 
     return(
-        <div>
+        <div className="foolpage">
             <div className="Top-bar">
       <div className="Logo">lastLink</div>
 
@@ -134,8 +117,9 @@ function MainPage() {
 
     <div className="mainheadline">
        <div className="mainheadlinecontent">Lastlink,<br/> 잊히지 않는 마지막 연결</div>
-       <div className="gotodown"  
-  onMouseEnter={() => smoothScrollDown(1050, 1500)}>dd </div>
+       <div className="mainheadlinecontent1">유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
+      고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.</div>
+       <img src="/GettyImages-jv11687471.jpg" alt="기억을 잇는 이미지" className="mainheadline-image" />
     </div>
 
 
@@ -153,24 +137,21 @@ function MainPage() {
   <div className="secondheadlinecontent2">
     <img src="/GettyImages-jv11568067.jpg" alt="기억을 잇는 이미지" className="secondheadline-image2" />
     <div className="writingbox2">
-      <div className="box2headlink">“남겨진 이야기, 그리고 추억. 함께 기억해요.”</div>
+      <div className="box2headlink">끝이 아닌 기억의 시작, 이곳에 머무릅니다.</div>
       <div className="box2content">
-      유서를 남기고, 추억을 나누며, 마지막 인사를 함께할 수 있는 공간.<br />
-      고인의 마음과 우리들의 기억이 하나로 연결되는 따뜻한 디지털 공간을 제공합니다.
+      마지막 인사와 추억, 그리고 사랑을 담는 디지털 공간.<br />
+      고인의 유서와 함께, 기억은 오늘도 살아 있습니다.
+  
       </div>
     </div>
   </div>
-   <div className="gotodown"  
-  onMouseEnter={() => smoothScrollDown(1000, 1500)}> ssss</div>
    </div>
 
 
-   <div className="thirdheadline">
-       <div className="thirdheadlinecontent">..</div>
-    </div>
+   
 
 
-    <button className="startbutton" onClick={gowill}>
+    <button className="startbutton" onClick={handleWriteWill}>
       유서 작성하러 가기
     </button>
     
