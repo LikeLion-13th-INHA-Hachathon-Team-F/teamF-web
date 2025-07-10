@@ -7,14 +7,16 @@ import WriteWill from "./WriteWill/WriteWill";
 import Modi from "./Modi/Modi";
 import VisitorRoutes from "./Visitor/VisitorRoutes";
 import GoWill from "./GoWill/GoWill";
+import UserMainPage from "./UserMainPage/UserMainPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/usermainpage/:id" element={<UserMainPage />} />
         <Route path="/writewill" element={<WriteWill />} />
         <Route path="/modi/:id" element={<Modi />} />
         {/* Visitor Routes */}

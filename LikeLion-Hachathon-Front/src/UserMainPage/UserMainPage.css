@@ -42,7 +42,7 @@
 }
 
 .email{
-
+    position: absolute;
     right: 60px;
     cursor: pointer;
     font-size: 25px;
@@ -316,9 +316,6 @@
 }
 .wrapandwill{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
 }
 .gotodown{
     color: white;
@@ -331,20 +328,3 @@
 
 
 
-
-
-
-.gologin{
-
-    margin-right: 30px;
-    cursor: pointer;
-    font-size: 12px;
-
-}
-
-.gosign{
-    margin-right: 30px;
-    cursor: pointer;
-    font-size: 12px;
-
-}

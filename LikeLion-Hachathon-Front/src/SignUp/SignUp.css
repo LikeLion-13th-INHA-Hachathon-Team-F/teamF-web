@@ -2,7 +2,8 @@
     position: absolute;
     top:150px;
     bottom: 150px;
-    width: 100%;
+    width: 500px;
+    height: 600px;
     max-width: 500px;
     left: 50%;
     transform: translate(-50%,0);

@@ -47,10 +47,6 @@
    
 }
 
-.LoginPage-PasswordInsert {
-    margin-bottom: 40px;
-}
-
 .IdInsert,
 .PasswordInsert {
     width: 100%;
@@ -59,7 +55,7 @@
     font-size: 16px;
     background: transparent;
     color: #333;
-   font-family: 'BMHANNAAir';
+
 }
 
 .IdInsert::placeholder,

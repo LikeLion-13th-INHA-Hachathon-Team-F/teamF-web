@@ -42,7 +42,7 @@ function LoginPage() {
             // // 페이지 이동
             //console.log("유저 pk:", userpk);
 
-            navigate("/mainpage");
+            navigate(`/usermainpage/${data.user.id}`); // 로그인 성공 시 유저 메인 페이지로 이동
 
 
         } catch (error) {
